@@ -1,0 +1,8 @@
+{
+  "dataset": "COCO",
+  "llm_model": "gpt-oss:20b",
+  "sample_size": 100,
+  "timestamp_start": "2025-11-04T08:55:41.037268",
+  "evaluations": [],
+  "metrics": {}
+}

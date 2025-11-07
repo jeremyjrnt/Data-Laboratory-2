@@ -1,0 +1,74 @@
+{
+  "test_image": "000000000370.jpg",
+  "original_query": "A little girl holding wet broccoli in her hand. ",
+  "reformulated_query": "Little girl standing outdoors, holding wet broccoli in an upright position, without any utensils or food preparation items visible.",
+  "baseline_rank": 26,
+  "new_rank_after_reformulation": 42,
+  "stage1_top3": [
+    {
+      "rank": 1,
+      "faiss_index": 86350,
+      "score": 0.3082948923110962,
+      "raw_faiss_value": 0.3082948923110962,
+      "filename": "000000455809.jpg",
+      "blip_caption": "there is a little girl eating broccoli in a bowl on the kitchen counter with a stove in the back ground and a microwave in the background"
+    },
+    {
+      "rank": 2,
+      "faiss_index": 83534,
+      "score": 0.3081813454627991,
+      "raw_faiss_value": 0.3081813454627991,
+      "filename": "000000053897.jpg",
+      "blip_caption": "there is a little girl sitting in a high chair with a piece of broccoli in one hand and a spoon in the other side of her hand"
+    },
+    {
+      "rank": 3,
+      "faiss_index": 82866,
+      "score": 0.3043433129787445,
+      "raw_faiss_value": 0.3043433129787445,
+      "filename": "000000062344.jpg",
+      "blip_caption": "there is a person cutting broccoli on a cutting board on a kitchen counter with a red kettle in the background and a green cutting board in the foreground"
+    }
+  ],
+  "stage2_top3": [
+    {
+      "rank": 1,
+      "faiss_index": 86350,
+      "score": 0.30826178193092346,
+      "raw_faiss_value": 0.30826178193092346,
+      "filename": "000000455809.jpg",
+      "blip_caption": "there is a little girl eating broccoli in a bowl on the kitchen counter with a stove in the back ground and a microwave in the background"
+    },
+    {
+      "rank": 2,
+      "faiss_index": 81879,
+      "score": 0.3060753643512726,
+      "raw_faiss_value": 0.3060753643512726,
+      "filename": "000000104977.jpg",
+      "blip_caption": "there is a young girl holding a piece of broccoli in her right hand and looking at the camera with a messy bun in her left hand"
+    },
+    {
+      "rank": 3,
+      "faiss_index": 82600,
+      "score": 0.3022439777851105,
+      "raw_faiss_value": 0.3022439777851105,
+      "filename": "000000051735.jpg",
+      "blip_caption": "there is a little girl that is sitting in a high chair eating a piece of broccoli with a fork in her mouth and a spoon in her hand"
+    }
+  ],
+  "rank_improvement": -16,
+  "improvement_percentage": -61.53846153846154,
+  "performance_status": "DEGRADED",
+  "stage1_blip_descriptions": [
+    "there is a little girl eating broccoli in a bowl on the kitchen counter with a stove in the back ground and a microwave in the background",
+    "there is a little girl sitting in a high chair with a piece of broccoli in one hand and a spoon in the other side of her hand",
+    "there is a person cutting broccoli on a cutting board on a kitchen counter with a red kettle in the background and a green cutting board in the foreground"
+  ],
+  "stage2_blip_descriptions": [
+    "there is a little girl eating broccoli in a bowl on the kitchen counter with a stove in the back ground and a microwave in the background",
+    "there is a young girl holding a piece of broccoli in her right hand and looking at the camera with a messy bun in her left hand",
+    "there is a little girl that is sitting in a high chair eating a piece of broccoli with a fork in her mouth and a spoon in her hand"
+  ],
+  "target_in_stage1_top3": false,
+  "target_in_stage2_top3": false
+}

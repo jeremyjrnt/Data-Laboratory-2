@@ -1,0 +1,74 @@
+{
+  "test_image": "000000000977.jpg",
+  "original_query": "A couple of cats laying on a couch in a room.",
+  "reformulated_query": "two cats relaxing on a fabric couch in a brightly lit living room",
+  "baseline_rank": 201,
+  "new_rank_after_reformulation": 274,
+  "stage1_top3": [
+    {
+      "rank": 1,
+      "faiss_index": 67957,
+      "score": 0.2947333753108978,
+      "raw_faiss_value": 0.2947333753108978,
+      "filename": "000000562861.jpg",
+      "blip_caption": "this is a picture of two cats laying on a couch in a living room with a window in the back ground and a cat laying on the back of the couch"
+    },
+    {
+      "rank": 2,
+      "faiss_index": 67960,
+      "score": 0.28220999240875244,
+      "raw_faiss_value": 0.28220999240875244,
+      "filename": "000000135577.jpg",
+      "blip_caption": "this is an image of two cats sleeping on a couch in a living room with a coffee table and a couch with a tv on top of it"
+    },
+    {
+      "rank": 3,
+      "faiss_index": 101706,
+      "score": 0.2790565490722656,
+      "raw_faiss_value": 0.2790565490722656,
+      "filename": "000000403162.jpg",
+      "blip_caption": "there is a cat sleeping on an orange couch in a living room with a world map on the wall and a blanket on the back of the couch"
+    }
+  ],
+  "stage2_top3": [
+    {
+      "rank": 1,
+      "faiss_index": 67957,
+      "score": 0.3089146018028259,
+      "raw_faiss_value": 0.3089146018028259,
+      "filename": "000000562861.jpg",
+      "blip_caption": "this is a picture of two cats laying on a couch in a living room with a window in the back ground and a cat laying on the back of the couch"
+    },
+    {
+      "rank": 2,
+      "faiss_index": 101706,
+      "score": 0.3032482862472534,
+      "raw_faiss_value": 0.3032482862472534,
+      "filename": "000000403162.jpg",
+      "blip_caption": "there is a cat sleeping on an orange couch in a living room with a world map on the wall and a blanket on the back of the couch"
+    },
+    {
+      "rank": 3,
+      "faiss_index": 67616,
+      "score": 0.29664346575737,
+      "raw_faiss_value": 0.29664346575737,
+      "filename": "000000425914.jpg",
+      "blip_caption": "there are two cats sleeping on a couch with pillows and a stuffed animal on top of one of the couch's pillows, one of them is black and one is orange"
+    }
+  ],
+  "rank_improvement": -73,
+  "improvement_percentage": -36.318407960199,
+  "performance_status": "DEGRADED",
+  "stage1_blip_descriptions": [
+    "this is a picture of two cats laying on a couch in a living room with a window in the back ground and a cat laying on the back of the couch",
+    "this is an image of two cats sleeping on a couch in a living room with a coffee table and a couch with a tv on top of it",
+    "there is a cat sleeping on an orange couch in a living room with a world map on the wall and a blanket on the back of the couch"
+  ],
+  "stage2_blip_descriptions": [
+    "this is a picture of two cats laying on a couch in a living room with a window in the back ground and a cat laying on the back of the couch",
+    "there is a cat sleeping on an orange couch in a living room with a world map on the wall and a blanket on the back of the couch",
+    "there are two cats sleeping on a couch with pillows and a stuffed animal on top of one of the couch's pillows, one of them is black and one is orange"
+  ],
+  "target_in_stage1_top3": false,
+  "target_in_stage2_top3": false
+}

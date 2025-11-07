@@ -1,0 +1,1395 @@
+{
+  "dataset": "COCO",
+  "llm_model": "gpt-oss:20b",
+  "sample_size": 100,
+  "timestamp_start": "2025-11-03T22:12:08.508803",
+  "evaluations": [
+    {
+      "image_id": "000000336354",
+      "query": "A plate of food sitting on a table.",
+      "ground_truth_path": "C:\\Users\\binbi\\Desktop\\DataLab2Project\\data\\COCO\\images\\000000336354.jpg",
+      "iterations": 1,
+      "initial_rank": null,
+      "final_rank": null,
+      "improvement": null,
+      "query_original": "A plate of food sitting on a table.",
+      "query_final": "A plate of food sitting on a table.",
+      "reformulated": false,
+      "max_iterations_reached": false,
+      "timestamp": "2025-11-03T22:12:22.347093",
+      "success": false,
+      "top_3_images": [
+        {
+          "rank": 1,
+          "similarity": 0.9641386270523071,
+          "description": "a table with a bunch of food on it and a window with a view of the outside of the room",
+          "metadata": {
+            "image_id": 191359,
+            "filename": "000000191359.jpg",
+            "width": 480,
+            "height": 640,
+            "caption": "A table topped with a colorful table cloth with food on top of it.",
+            "date_captured": "2013-11-20 00:26:50",
+            "url": "http://images.cocodataset.org/train2017/000000191359.jpg",
+            "license": 3,
+            "image_path": "data\\COCO\\images\\000000191359.jpg",
+            "embedding_id": 21388
+          }
+        },
+        {
+          "rank": 2,
+          "similarity": 0.9652639031410217,
+          "description": "a plate of spaghetti on a table with a fork and a can of soda on the table next to it",
+          "metadata": {
+            "image_id": 68300,
+            "filename": "000000068300.jpg",
+            "width": 640,
+            "height": 480,
+            "caption": "A plate of spaghetti with red sauce and broccoli. ",
+            "date_captured": "2013-11-19 20:14:41",
+            "url": "http://images.cocodataset.org/train2017/000000068300.jpg",
+            "license": 1,
+            "image_path": "data\\COCO\\images\\000000068300.jpg",
+            "embedding_id": 20845
+          }
+        },
+        {
+          "rank": 3,
+          "similarity": 0.9654662609100342,
+          "description": "a plate with a piece of cake and a cup of coffee on it on a table next to a plate with a piece of cake and a",
+          "metadata": {
+            "image_id": 443597,
+            "filename": "000000443597.jpg",
+            "width": 640,
+            "height": 427,
+            "caption": "Four pieces of dessert on a styrofoam plate",
+            "date_captured": "2013-11-19 17:59:57",
+            "url": "http://images.cocodataset.org/train2017/000000443597.jpg",
+            "license": 1,
+            "image_path": "data\\COCO\\images\\000000443597.jpg",
+            "embedding_id": 18003
+          }
+        }
+      ]
+    },
+    {
+      "image_id": "000000362327",
+      "query": "A black brown cat with large whiskers looking at the camera.",
+      "ground_truth_path": "C:\\Users\\binbi\\Desktop\\DataLab2Project\\data\\COCO\\images\\000000362327.jpg",
+      "iterations": 3,
+      "initial_rank": null,
+      "final_rank": null,
+      "improvement": null,
+      "query_original": "A black brown cat with large whiskers looking at the camera.",
+      "query_final": "black and brown cat with long prominent whiskers staring directly into the camera.",
+      "reformulated": true,
+      "max_iterations_reached": true,
+      "timestamp": "2025-11-03T22:12:31.038960",
+      "success": false,
+      "top_3_images": [
+        {
+          "rank": 1,
+          "similarity": 0.9623066186904907,
+          "description": "a black cat sitting on top of a wooden shelf next to a book shelf with books on it",
+          "metadata": {
+            "image_id": 13770,
+            "filename": "000000013770.jpg",
+            "width": 640,
+            "height": 565,
+            "caption": "A black cat in front of a wooden bookshelf.",
+            "date_captured": "2013-11-15 12:30:26",
+            "url": "http://images.cocodataset.org/train2017/000000013770.jpg",
+            "license": 1,
+            "image_path": "data\\COCO\\images\\000000013770.jpg",
+            "embedding_id": 42521
+          }
+        },
+        {
+          "rank": 2,
+          "similarity": 0.9630184173583984,
+          "description": "a black cat sitting in a bathroom next to a bathtub with a shower curtain in the background",
+          "metadata": {
+            "image_id": 18394,
+            "filename": "000000018394.jpg",
+            "width": 640,
+            "height": 480,
+            "caption": "A close-up of a black cat looking up.",
+            "date_captured": "2013-11-15 00:54:56",
+            "url": "http://images.cocodataset.org/train2017/000000018394.jpg",
+            "license": 3,
+            "image_path": "data\\COCO\\images\\000000018394.jpg",
+            "embedding_id": 36259
+          }
+        },
+        {
+          "rank": 3,
+          "similarity": 0.9632207751274109,
+          "description": "a black and white cat sitting on a chair in front of a red door with a black and white cat sitting on a chair in front of",
+          "metadata": {
+            "image_id": 386619,
+            "filename": "000000386619.jpg",
+            "width": 480,
+            "height": 640,
+            "caption": "A brown, black and white calico cat on a step",
+            "date_captured": "2013-11-17 19:10:28",
+            "url": "http://images.cocodataset.org/train2017/000000386619.jpg",
+            "license": 1,
+            "image_path": "data\\COCO\\images\\000000386619.jpg",
+            "embedding_id": 64290
+          }
+        }
+      ]
+    },
+    {
+      "image_id": "000000097434",
+      "query": "A person on a street next to a motor bike.",
+      "ground_truth_path": "C:\\Users\\binbi\\Desktop\\DataLab2Project\\data\\COCO\\images\\000000097434.jpg",
+      "iterations": 3,
+      "initial_rank": null,
+      "final_rank": null,
+      "improvement": null,
+      "query_original": "A person on a street next to a motor bike.",
+      "query_final": "person walking on a city street next to a parked motorbike",
+      "reformulated": true,
+      "max_iterations_reached": true,
+      "timestamp": "2025-11-03T22:12:46.080324",
+      "success": false,
+      "top_3_images": [
+        {
+          "rank": 1,
+          "similarity": 0.9566926956176758,
+          "description": "a man in a blue shirt and black shorts is walking down the street with a bunch of motorcycles in the background",
+          "metadata": {
+            "image_id": 487181,
+            "filename": "000000487181.jpg",
+            "width": 640,
+            "height": 427,
+            "caption": "A young man crossing a street next to bikers.",
+            "date_captured": "2013-11-15 17:36:11",
+            "url": "http://images.cocodataset.org/train2017/000000487181.jpg",
+            "license": 1,
+            "image_path": "data\\COCO\\images\\000000487181.jpg",
+            "embedding_id": 622
+          }
+        },
+        {
+          "rank": 2,
+          "similarity": 0.9576950669288635,
+          "description": "a person riding a motorcycle down a street in the middle of a city with tall buildings in the background",
+          "metadata": {
+            "image_id": 567944,
+            "filename": "000000567944.jpg",
+            "width": 500,
+            "height": 283,
+            "caption": "A couple of people that are sitting on mopeds.",
+            "date_captured": "2013-11-15 14:55:55",
+            "url": "http://images.cocodataset.org/train2017/000000567944.jpg",
+            "license": 4,
+            "image_path": "data\\COCO\\images\\000000567944.jpg",
+            "embedding_id": 5480
+          }
+        },
+        {
+          "rank": 3,
+          "similarity": 0.9577381014823914,
+          "description": "a motorcycle parked on the side of a road next to a traffic light pole and a traffic light pole",
+          "metadata": {
+            "image_id": 253447,
+            "filename": "000000253447.jpg",
+            "width": 640,
+            "height": 480,
+            "caption": "a person riding a motorcycle on a city street",
+            "date_captured": "2013-11-14 14:31:25",
+            "url": "http://images.cocodataset.org/train2017/000000253447.jpg",
+            "license": 1,
+            "image_path": "data\\COCO\\images\\000000253447.jpg",
+            "embedding_id": 40086
+          }
+        }
+      ]
+    },
+    {
+      "image_id": "000000512186",
+      "query": "two men catching a wave as they attempt to surf.",
+      "ground_truth_path": "C:\\Users\\binbi\\Desktop\\DataLab2Project\\data\\COCO\\images\\000000512186.jpg",
+      "iterations": 3,
+      "initial_rank": null,
+      "final_rank": null,
+      "improvement": null,
+      "query_original": "two men catching a wave as they attempt to surf.",
+      "query_final": "two male surfers catching a wave together on surfboards in the ocean.",
+      "reformulated": true,
+      "max_iterations_reached": true,
+      "timestamp": "2025-11-03T22:12:57.289934",
+      "success": false,
+      "top_3_images": [
+        {
+          "rank": 1,
+          "similarity": 0.9508664011955261,
+          "description": "two surfers on their surfboards in the ocean, one is lying on his surfboard and the other is lying on his surfboard",
+          "metadata": {
+            "image_id": 422893,
+            "filename": "000000422893.jpg",
+            "width": 640,
+            "height": 427,
+            "caption": "Two people laying on surfboards riding a wave.",
+            "date_captured": "2013-11-20 22:35:11",
+            "url": "http://images.cocodataset.org/train2017/000000422893.jpg",
+            "license": 1,
+            "image_path": "data\\COCO\\images\\000000422893.jpg",
+            "embedding_id": 24113
+          }
+        },
+        {
+          "rank": 2,
+          "similarity": 0.9515767693519592,
+          "description": "two surfers on their surfboards riding a wave in the ocean, while another surfer watches from the other side of the wave",
+          "metadata": {
+            "image_id": 489422,
+            "filename": "000000489422.jpg",
+            "width": 500,
+            "height": 341,
+            "caption": "two people riding surfboards on a wave ",
+            "date_captured": "2013-11-20 19:34:55",
+            "url": "http://images.cocodataset.org/train2017/000000489422.jpg",
+            "license": 1,
+            "image_path": "data\\COCO\\images\\000000489422.jpg",
+            "embedding_id": 90874
+          }
+        },
+        {
+          "rank": 3,
+          "similarity": 0.9547942876815796,
+          "description": "a group of people riding surfboards on top of a wave in a body of water with a man on a surfboard in the middle of",
+          "metadata": {
+            "image_id": 439770,
+            "filename": "000000439770.jpg",
+            "width": 640,
+            "height": 480,
+            "caption": "The empty surf board is floating on top of a wave.",
+            "date_captured": "2013-11-21 01:06:19",
+            "url": "http://images.cocodataset.org/train2017/000000439770.jpg",
+            "license": 4,
+            "image_path": "data\\COCO\\images\\000000439770.jpg",
+            "embedding_id": 25957
+          }
+        }
+      ]
+    },
+    {
+      "image_id": "000000385753",
+      "query": "a girl is holding a cat and talking on a cellphone",
+      "ground_truth_path": "C:\\Users\\binbi\\Desktop\\DataLab2Project\\data\\COCO\\images\\000000385753.jpg",
+      "iterations": 3,
+      "initial_rank": 1,
+      "final_rank": null,
+      "improvement": "Rank 1 → Not in top-3",
+      "query_original": "a girl is holding a cat and talking on a cellphone",
+      "query_final": "young girl holding a cat in her arms while talking on her cellphone",
+      "reformulated": true,
+      "max_iterations_reached": true,
+      "timestamp": "2025-11-03T22:13:11.643426",
+      "success": false,
+      "top_3_images": [
+        {
+          "rank": 1,
+          "similarity": 0.958943784236908,
+          "description": "a woman sitting in front of a christmas tree while talking on a cell phone and holding a magazine",
+          "metadata": {
+            "image_id": 343860,
+            "filename": "000000343860.jpg",
+            "width": 640,
+            "height": 480,
+            "caption": "a girl holding a cell phone and using another cell phone",
+            "date_captured": "2013-11-24 07:17:23",
+            "url": "http://images.cocodataset.org/train2017/000000343860.jpg",
+            "license": 2,
+            "image_path": "data\\COCO\\images\\000000343860.jpg",
+            "embedding_id": 113073
+          }
+        },
+        {
+          "rank": 2,
+          "similarity": 0.9592369198799133,
+          "description": "a young girl holding a cat in front of a green wooden fence with a bike in the background",
+          "metadata": {
+            "image_id": 562150,
+            "filename": "000000562150.jpg",
+            "width": 640,
+            "height": 516,
+            "caption": "A little girl holding a kitten next to a blue fence.",
+            "date_captured": "2013-11-14 23:45:06",
+            "url": "http://images.cocodataset.org/train2017/000000562150.jpg",
+            "license": 3,
+            "image_path": "data\\COCO\\images\\000000562150.jpg",
+            "embedding_id": 772
+          }
+        },
+        {
+          "rank": 3,
+          "similarity": 0.9603888988494873,
+          "description": "a young girl holding a cell phone to her ear while standing in front of a quilt on a wall",
+          "metadata": {
+            "image_id": 401310,
+            "filename": "000000401310.jpg",
+            "width": 391,
+            "height": 640,
+            "caption": "A pretty young girl talking on a purple phone.",
+            "date_captured": "2013-11-24 06:38:48",
+            "url": "http://images.cocodataset.org/train2017/000000401310.jpg",
+            "license": 3,
+            "image_path": "data\\COCO\\images\\000000401310.jpg",
+            "embedding_id": 113866
+          }
+        }
+      ]
+    },
+    {
+      "image_id": "000000019090",
+      "query": "A man and a lady holding up some cameras near each other.",
+      "ground_truth_path": "C:\\Users\\binbi\\Desktop\\DataLab2Project\\data\\COCO\\images\\000000019090.jpg",
+      "iterations": 3,
+      "initial_rank": null,
+      "final_rank": null,
+      "improvement": null,
+      "query_original": "A man and a lady holding up some cameras near each other.",
+      "query_final": "A man and a lady holding up cameras close to each other, standing side by side.",
+      "reformulated": true,
+      "max_iterations_reached": true,
+      "timestamp": "2025-11-03T22:13:19.458712",
+      "success": false,
+      "top_3_images": [
+        {
+          "rank": 1,
+          "similarity": 0.9591100215911865,
+          "description": "a man in a black leather jacket and a woman in a black leather jacket holding a cell phone",
+          "metadata": {
+            "image_id": 9729,
+            "filename": "000000009729.jpg",
+            "width": 500,
+            "height": 333,
+            "caption": "Two people standing next to each other, one holding a phone and the other pointing at it. ",
+            "date_captured": "2013-11-24 07:29:42",
+            "url": "http://images.cocodataset.org/train2017/000000009729.jpg",
+            "license": 1,
+            "image_path": "data\\COCO\\images\\000000009729.jpg",
+            "embedding_id": 32411
+          }
+        },
+        {
+          "rank": 2,
+          "similarity": 0.9625528454780579,
+          "description": "a man in a suit and woman in a white dress posing for a picture with their cell phones",
+          "metadata": {
+            "image_id": 240887,
+            "filename": "000000240887.jpg",
+            "width": 375,
+            "height": 500,
+            "caption": "Two people standing next to one another holding cell phones.",
+            "date_captured": "2013-11-24 07:51:01",
+            "url": "http://images.cocodataset.org/train2017/000000240887.jpg",
+            "license": 3,
+            "image_path": "data\\COCO\\images\\000000240887.jpg",
+            "embedding_id": 113298
+          }
+        },
+        {
+          "rank": 3,
+          "similarity": 0.9630347490310669,
+          "description": "a woman in a pink hat is surrounded by a large group of people who are holding microphones",
+          "metadata": {
+            "image_id": 185989,
+            "filename": "000000185989.jpg",
+            "width": 640,
+            "height": 480,
+            "caption": "An announcer with a microphone talking to a crowd.",
+            "date_captured": "2013-11-17 05:12:41",
+            "url": "http://images.cocodataset.org/train2017/000000185989.jpg",
+            "license": 1,
+            "image_path": "data\\COCO\\images\\000000185989.jpg",
+            "embedding_id": 8290
+          }
+        }
+      ]
+    },
+    {
+      "image_id": "000000303667",
+      "query": "A man holding a cell phone in a crowded mall.",
+      "ground_truth_path": "C:\\Users\\binbi\\Desktop\\DataLab2Project\\data\\COCO\\images\\000000303667.jpg",
+      "iterations": 3,
+      "initial_rank": null,
+      "final_rank": null,
+      "improvement": null,
+      "query_original": "A man holding a cell phone in a crowded mall.",
+      "query_final": "A man holding a cell phone in a crowded shopping mall full of shoppers.",
+      "reformulated": true,
+      "max_iterations_reached": true,
+      "timestamp": "2025-11-03T22:13:30.362442",
+      "success": false,
+      "top_3_images": [
+        {
+          "rank": 1,
+          "similarity": 0.9652453660964966,
+          "description": "a group of people standing around a table with laptops and cell phones in front of the table",
+          "metadata": {
+            "image_id": 379261,
+            "filename": "000000379261.jpg",
+            "width": 640,
+            "height": 480,
+            "caption": "A couple of people standing in a cell phone shop.",
+            "date_captured": "2013-11-24 06:26:49",
+            "url": "http://images.cocodataset.org/train2017/000000379261.jpg",
+            "license": 4,
+            "image_path": "data\\COCO\\images\\000000379261.jpg",
+            "embedding_id": 113169
+          }
+        },
+        {
+          "rank": 2,
+          "similarity": 0.9655736684799194,
+          "description": "a man in a black shirt holding a white bag and looking at his cell while standing next to a black chair",
+          "metadata": {
+            "image_id": 529555,
+            "filename": "000000529555.jpg",
+            "width": 427,
+            "height": 640,
+            "caption": "The man holding a shopping bag is using his cell phone.",
+            "date_captured": "2013-11-24 06:56:39",
+            "url": "http://images.cocodataset.org/train2017/000000529555.jpg",
+            "license": 1,
+            "image_path": "data\\COCO\\images\\000000529555.jpg",
+            "embedding_id": 112192
+          }
+        },
+        {
+          "rank": 3,
+          "similarity": 0.9672340154647827,
+          "description": "a man talking on a cell while sitting at a table in a clothing store with boxes on the floor",
+          "metadata": {
+            "image_id": 94746,
+            "filename": "000000094746.jpg",
+            "width": 500,
+            "height": 400,
+            "caption": "A man standing in front of a counter talking on a phone.",
+            "date_captured": "2013-11-24 07:19:05",
+            "url": "http://images.cocodataset.org/train2017/000000094746.jpg",
+            "license": 4,
+            "image_path": "data\\COCO\\images\\000000094746.jpg",
+            "embedding_id": 32815
+          }
+        }
+      ]
+    },
+    {
+      "image_id": "000000093806",
+      "query": "A group of people racing down a snow covered slope.",
+      "ground_truth_path": "C:\\Users\\binbi\\Desktop\\DataLab2Project\\data\\COCO\\images\\000000093806.jpg",
+      "iterations": 1,
+      "initial_rank": null,
+      "final_rank": null,
+      "improvement": null,
+      "query_original": "A group of people racing down a snow covered slope.",
+      "query_final": "A group of people racing down a snow covered slope.",
+      "reformulated": false,
+      "max_iterations_reached": false,
+      "timestamp": "2025-11-03T22:13:38.070226",
+      "success": false,
+      "top_3_images": [
+        {
+          "rank": 1,
+          "similarity": 0.9559637308120728,
+          "description": "a group of people sitting in the snow on a hill with a snowboarder in the background",
+          "metadata": {
+            "image_id": 134033,
+            "filename": "000000134033.jpg",
+            "width": 640,
+            "height": 480,
+            "caption": "People sliding down the mountain slope in the snow.",
+            "date_captured": "2013-11-20 08:11:29",
+            "url": "http://images.cocodataset.org/train2017/000000134033.jpg",
+            "license": 1,
+            "image_path": "data\\COCO\\images\\000000134033.jpg",
+            "embedding_id": 92159
+          }
+        },
+        {
+          "rank": 2,
+          "similarity": 0.956186830997467,
+          "description": "a group of people riding ski boards down a snow covered ski slope in the background is a mountain",
+          "metadata": {
+            "image_id": 452468,
+            "filename": "000000452468.jpg",
+            "width": 640,
+            "height": 480,
+            "caption": "Three skiers ride down a hill on an overcast day. ",
+            "date_captured": "2013-11-20 06:15:49",
+            "url": "http://images.cocodataset.org/train2017/000000452468.jpg",
+            "license": 1,
+            "image_path": "data\\COCO\\images\\000000452468.jpg",
+            "embedding_id": 90306
+          }
+        },
+        {
+          "rank": 3,
+          "similarity": 0.9563900232315063,
+          "description": "a group of people riding ski boards down a snow covered slope on a ski slope with trees in the background",
+          "metadata": {
+            "image_id": 452816,
+            "filename": "000000452816.jpg",
+            "width": 640,
+            "height": 427,
+            "caption": "A group of men riding skis down a snow covered slope.",
+            "date_captured": "2013-11-19 22:27:21",
+            "url": "http://images.cocodataset.org/train2017/000000452816.jpg",
+            "license": 3,
+            "image_path": "data\\COCO\\images\\000000452816.jpg",
+            "embedding_id": 20736
+          }
+        }
+      ]
+    },
+    {
+      "image_id": "000000147931",
+      "query": "a close up of a person holding a surf board on a beach",
+      "ground_truth_path": "C:\\Users\\binbi\\Desktop\\DataLab2Project\\data\\COCO\\images\\000000147931.jpg",
+      "iterations": 3,
+      "initial_rank": null,
+      "final_rank": null,
+      "improvement": null,
+      "query_original": "a close up of a person holding a surf board on a beach",
+      "query_final": "closeâ€‘up portrait of a person holding a surfboard on a beach, with the shoreline and waves visible in the background and the surfboard clearly in hand.",
+      "reformulated": true,
+      "max_iterations_reached": true,
+      "timestamp": "2025-11-03T22:13:48.310747",
+      "success": false,
+      "top_3_images": [
+        {
+          "rank": 1,
+          "similarity": 0.958618700504303,
+          "description": "a person walking on the beach with a surfboard in their hand and a mountain in the background",
+          "metadata": {
+            "image_id": 274978,
+            "filename": "000000274978.jpg",
+            "width": 640,
+            "height": 449,
+            "caption": "This photograph of a surfer entering the ocean is breathtaking.",
+            "date_captured": "2013-11-20 18:13:30",
+            "url": "http://images.cocodataset.org/train2017/000000274978.jpg",
+            "license": 3,
+            "image_path": "data\\COCO\\images\\000000274978.jpg",
+            "embedding_id": 92821
+          }
+        },
+        {
+          "rank": 2,
+          "similarity": 0.9613184332847595,
+          "description": "a man walking on the beach with a surfboard in his hand and a surfboard in his other hand",
+          "metadata": {
+            "image_id": 43850,
+            "filename": "000000043850.jpg",
+            "width": 333,
+            "height": 500,
+            "caption": "A man standing over his dog on a beach while holding a surfboard next to the ocean.",
+            "date_captured": "2013-11-18 11:20:03",
+            "url": "http://images.cocodataset.org/train2017/000000043850.jpg",
+            "license": 3,
+            "image_path": "data\\COCO\\images\\000000043850.jpg",
+            "embedding_id": 11710
+          }
+        },
+        {
+          "rank": 3,
+          "similarity": 0.9625334739685059,
+          "description": "a man carrying a red and white surfboard walking on the beach next to a body of water",
+          "metadata": {
+            "image_id": 358617,
+            "filename": "000000358617.jpg",
+            "width": 500,
+            "height": 333,
+            "caption": "A man walking along a beach holding a surfboard.",
+            "date_captured": "2013-11-20 19:14:30",
+            "url": "http://images.cocodataset.org/train2017/000000358617.jpg",
+            "license": 3,
+            "image_path": "data\\COCO\\images\\000000358617.jpg",
+            "embedding_id": 25058
+          }
+        }
+      ]
+    },
+    {
+      "image_id": "000000566998",
+      "query": "A cat holding a remote control while laying on a couch.",
+      "ground_truth_path": "C:\\Users\\binbi\\Desktop\\DataLab2Project\\data\\COCO\\images\\000000566998.jpg",
+      "iterations": 3,
+      "initial_rank": null,
+      "final_rank": null,
+      "improvement": null,
+      "query_original": "A cat holding a remote control while laying on a couch.",
+      "query_final": "cat lying on couch with paws gripping a remote control.",
+      "reformulated": true,
+      "max_iterations_reached": true,
+      "timestamp": "2025-11-03T22:14:04.336223",
+      "success": false,
+      "top_3_images": [
+        {
+          "rank": 1,
+          "similarity": 0.9479671120643616,
+          "description": "a cat sleeping on a couch with a remote control in it's paws and a remote control device in its mouth",
+          "metadata": {
+            "image_id": 395550,
+            "filename": "000000395550.jpg",
+            "width": 500,
+            "height": 375,
+            "caption": "a cat laying nestled up into a bowl with its head on top of a remote",
+            "date_captured": "2013-11-17 19:17:51",
+            "url": "http://images.cocodataset.org/train2017/000000395550.jpg",
+            "license": 1,
+            "image_path": "data\\COCO\\images\\000000395550.jpg",
+            "embedding_id": 17162
+          }
+        },
+        {
+          "rank": 2,
+          "similarity": 0.9489127397537231,
+          "description": "a cat laying on a couch next to a remote control device and a remote control device on the couch",
+          "metadata": {
+            "image_id": 544698,
+            "filename": "000000544698.jpg",
+            "width": 640,
+            "height": 427,
+            "caption": "A cat is laying on the couch next to remotes and a cell phone. ",
+            "date_captured": "2013-11-18 00:30:09",
+            "url": "http://images.cocodataset.org/train2017/000000544698.jpg",
+            "license": 2,
+            "image_path": "data\\COCO\\images\\000000544698.jpg",
+            "embedding_id": 65549
+          }
+        },
+        {
+          "rank": 3,
+          "similarity": 0.9504678249359131,
+          "description": "a cat laying on a couch with a remote control on it's back and head resting on a remote control",
+          "metadata": {
+            "image_id": 467295,
+            "filename": "000000467295.jpg",
+            "width": 375,
+            "height": 500,
+            "caption": "A cat sitting on a pink stripped couch",
+            "date_captured": "2013-11-17 21:31:12",
+            "url": "http://images.cocodataset.org/train2017/000000467295.jpg",
+            "license": 2,
+            "image_path": "data\\COCO\\images\\000000467295.jpg",
+            "embedding_id": 62785
+          }
+        }
+      ]
+    },
+    {
+      "image_id": "000000378024",
+      "query": "Some food is displayed on a disposable plate.",
+      "ground_truth_path": "C:\\Users\\binbi\\Desktop\\DataLab2Project\\data\\COCO\\images\\000000378024.jpg",
+      "iterations": 3,
+      "initial_rank": null,
+      "final_rank": null,
+      "improvement": null,
+      "query_original": "Some food is displayed on a disposable plate.",
+      "query_final": "food displayed on a singleâ€‘use paper plate",
+      "reformulated": true,
+      "max_iterations_reached": true,
+      "timestamp": "2025-11-03T22:14:14.131480",
+      "success": false,
+      "top_3_images": [
+        {
+          "rank": 1,
+          "similarity": 0.9583262801170349,
+          "description": "a blue plate with a piece of broccote and a piece of broccote on it",
+          "metadata": {
+            "image_id": 393730,
+            "filename": "000000393730.jpg",
+            "width": 639,
+            "height": 640,
+            "caption": "A plate has a small amount of food on it",
+            "date_captured": "2013-11-19 23:39:45",
+            "url": "http://images.cocodataset.org/train2017/000000393730.jpg",
+            "license": 2,
+            "image_path": "data\\COCO\\images\\000000393730.jpg",
+            "embedding_id": 86855
+          }
+        },
+        {
+          "rank": 2,
+          "similarity": 0.9591386914253235,
+          "description": "a table with a plate of food on it and a box of milk and a bowl of food on the table",
+          "metadata": {
+            "image_id": 94163,
+            "filename": "000000094163.jpg",
+            "width": 480,
+            "height": 640,
+            "caption": "Table set with two place setting of food and utensils.",
+            "date_captured": "2013-11-20 00:27:31",
+            "url": "http://images.cocodataset.org/train2017/000000094163.jpg",
+            "license": 5,
+            "image_path": "data\\COCO\\images\\000000094163.jpg",
+            "embedding_id": 81915
+          }
+        },
+        {
+          "rank": 3,
+          "similarity": 0.9605109691619873,
+          "description": "a pizza box sitting on top of a table with a knife and a piece of pizza on it",
+          "metadata": {
+            "image_id": 3511,
+            "filename": "000000003511.jpg",
+            "width": 500,
+            "height": 500,
+            "caption": "A single slice of pizza sitting on a cardboard box beside a knife.",
+            "date_captured": "2013-11-20 15:15:49",
+            "url": "http://images.cocodataset.org/train2017/000000003511.jpg",
+            "license": 3,
+            "image_path": "data\\COCO\\images\\000000003511.jpg",
+            "embedding_id": 88777
+          }
+        }
+      ]
+    },
+    {
+      "image_id": "000000163738",
+      "query": "A cat sitting on a windowsill partially hidden by blinds.",
+      "ground_truth_path": "C:\\Users\\binbi\\Desktop\\DataLab2Project\\data\\COCO\\images\\000000163738.jpg",
+      "iterations": 3,
+      "initial_rank": null,
+      "final_rank": null,
+      "improvement": null,
+      "query_original": "A cat sitting on a windowsill partially hidden by blinds.",
+      "query_final": "single cat perched on a windowsill, partially hidden by blinds.",
+      "reformulated": true,
+      "max_iterations_reached": true,
+      "timestamp": "2025-11-03T22:14:23.260145",
+      "success": false,
+      "top_3_images": [
+        {
+          "rank": 1,
+          "similarity": 0.9615328907966614,
+          "description": "a cat sitting on a window sie next to a pot with sus in front of it",
+          "metadata": {
+            "image_id": 510460,
+            "filename": "000000510460.jpg",
+            "width": 371,
+            "height": 500,
+            "caption": "A cat that is looking outside of a window.",
+            "date_captured": "2013-11-17 20:49:49",
+            "url": "http://images.cocodataset.org/train2017/000000510460.jpg",
+            "license": 6,
+            "image_path": "data\\COCO\\images\\000000510460.jpg",
+            "embedding_id": 62918
+          }
+        },
+        {
+          "rank": 2,
+          "similarity": 0.9644283056259155,
+          "description": "a cat sitting on a window sie looking out at the view of the outside of the building",
+          "metadata": {
+            "image_id": 555811,
+            "filename": "000000555811.jpg",
+            "width": 640,
+            "height": 426,
+            "caption": "A little brown cat sitting on a window sill looking out.",
+            "date_captured": "2013-11-17 20:54:15",
+            "url": "http://images.cocodataset.org/train2017/000000555811.jpg",
+            "license": 3,
+            "image_path": "data\\COCO\\images\\000000555811.jpg",
+            "embedding_id": 63770
+          }
+        },
+        {
+          "rank": 3,
+          "similarity": 0.9645782709121704,
+          "description": "a black cat sitting on a window sie looking out at the view of the outside of the window",
+          "metadata": {
+            "image_id": 37470,
+            "filename": "000000037470.jpg",
+            "width": 640,
+            "height": 450,
+            "caption": "There are two cats sitting on a window ledge. ",
+            "date_captured": "2013-11-17 20:53:29",
+            "url": "http://images.cocodataset.org/train2017/000000037470.jpg",
+            "license": 4,
+            "image_path": "data\\COCO\\images\\000000037470.jpg",
+            "embedding_id": 16191
+          }
+        }
+      ]
+    },
+    {
+      "image_id": "000000331607",
+      "query": "A building with a clock on the front of it. ",
+      "ground_truth_path": "C:\\Users\\binbi\\Desktop\\DataLab2Project\\data\\COCO\\images\\000000331607.jpg",
+      "iterations": 3,
+      "initial_rank": null,
+      "final_rank": null,
+      "improvement": null,
+      "query_original": "A building with a clock on the front of it. ",
+      "query_final": "Clock on the front faÃ§ade of a building.",
+      "reformulated": true,
+      "max_iterations_reached": true,
+      "timestamp": "2025-11-03T22:14:32.719282",
+      "success": false,
+      "top_3_images": [
+        {
+          "rank": 1,
+          "similarity": 0.9587855935096741,
+          "description": "a clock on the side of a brick building with a clock on the top of it's roof",
+          "metadata": {
+            "image_id": 519883,
+            "filename": "000000519883.jpg",
+            "width": 425,
+            "height": 640,
+            "caption": "A clock on the face of a large brick building.",
+            "date_captured": "2013-11-24 14:43:51",
+            "url": "http://images.cocodataset.org/train2017/000000519883.jpg",
+            "license": 2,
+            "image_path": "data\\COCO\\images\\000000519883.jpg",
+            "embedding_id": 114385
+          }
+        },
+        {
+          "rank": 2,
+          "similarity": 0.9597147703170776,
+          "description": "a clock on the side of a building with a clock on the top of it's side",
+          "metadata": {
+            "image_id": 407091,
+            "filename": "000000407091.jpg",
+            "width": 463,
+            "height": 640,
+            "caption": "A Clock Street sign on the corner of a building.",
+            "date_captured": "2013-11-23 17:59:55",
+            "url": "http://images.cocodataset.org/train2017/000000407091.jpg",
+            "license": 1,
+            "image_path": "data\\COCO\\images\\000000407091.jpg",
+            "embedding_id": 109685
+          }
+        },
+        {
+          "rank": 3,
+          "similarity": 0.9611243605613708,
+          "description": "a clock on the side of a building with a clock on the top of it's roof",
+          "metadata": {
+            "image_id": 410091,
+            "filename": "000000410091.jpg",
+            "width": 640,
+            "height": 480,
+            "caption": "A picture of the top of a building.",
+            "date_captured": "2013-11-24 14:45:17",
+            "url": "http://images.cocodataset.org/train2017/000000410091.jpg",
+            "license": 2,
+            "image_path": "data\\COCO\\images\\000000410091.jpg",
+            "embedding_id": 114873
+          }
+        }
+      ]
+    },
+    {
+      "image_id": "000000116677",
+      "query": "A black and tan cat on desk next to keyboard and monitor.",
+      "ground_truth_path": "C:\\Users\\binbi\\Desktop\\DataLab2Project\\data\\COCO\\images\\000000116677.jpg",
+      "iterations": 3,
+      "initial_rank": null,
+      "final_rank": 3,
+      "improvement": "Not in top-3 → rank 3",
+      "query_original": "A black and tan cat on desk next to keyboard and monitor.",
+      "query_final": "Tan and black cat sitting upright on a desk beside a keyboard and a monitor.",
+      "reformulated": true,
+      "max_iterations_reached": true,
+      "timestamp": "2025-11-03T22:14:45.237828",
+      "success": true,
+      "top_3_images": [
+        {
+          "rank": 1,
+          "similarity": 0.9475902318954468,
+          "description": "a black cat laying on a desk next to a keyboard and a computer monitor with a keyboard in front of it",
+          "metadata": {
+            "image_id": 159753,
+            "filename": "000000159753.jpg",
+            "width": 640,
+            "height": 480,
+            "caption": "A cat laying down behind a computer keyboard. ",
+            "date_captured": "2013-11-17 21:10:32",
+            "url": "http://images.cocodataset.org/train2017/000000159753.jpg",
+            "license": 1,
+            "image_path": "data\\COCO\\images\\000000159753.jpg",
+            "embedding_id": 67196
+          }
+        },
+        {
+          "rank": 2,
+          "similarity": 0.9476047158241272,
+          "description": "a black cat sitting on a desk next to a computer monitor with a keyboard in front of it",
+          "metadata": {
+            "image_id": 570115,
+            "filename": "000000570115.jpg",
+            "width": 427,
+            "height": 640,
+            "caption": "A black cat sitting on top of a computer keyboard.",
+            "date_captured": "2013-11-17 21:22:57",
+            "url": "http://images.cocodataset.org/train2017/000000570115.jpg",
+            "license": 3,
+            "image_path": "data\\COCO\\images\\000000570115.jpg",
+            "embedding_id": 16629
+          }
+        },
+        {
+          "rank": 3,
+          "similarity": 0.9493891000747681,
+          "description": "a cat sitting on top of a wooden desk next to a computer monitor and a mouse and keyboard",
+          "metadata": {
+            "image_id": 116677,
+            "filename": "000000116677.jpg",
+            "width": 640,
+            "height": 360,
+            "caption": "A black and tan cat on desk next to keyboard and monitor.",
+            "date_captured": "2013-11-18 04:10:13",
+            "url": "http://images.cocodataset.org/train2017/000000116677.jpg",
+            "license": 4,
+            "image_path": "data\\COCO\\images\\000000116677.jpg",
+            "embedding_id": 71482
+          }
+        }
+      ]
+    },
+    {
+      "image_id": "000000465092",
+      "query": "A hallway with two wooden benches and large windows.",
+      "ground_truth_path": "C:\\Users\\binbi\\Desktop\\DataLab2Project\\data\\COCO\\images\\000000465092.jpg",
+      "iterations": 3,
+      "initial_rank": 1,
+      "final_rank": 1,
+      "improvement": 0,
+      "query_original": "A hallway with two wooden benches and large windows.",
+      "query_final": "long hallway with two wooden benches and large windows",
+      "reformulated": true,
+      "max_iterations_reached": true,
+      "timestamp": "2025-11-03T22:14:54.886757",
+      "success": true,
+      "top_3_images": [
+        {
+          "rank": 1,
+          "similarity": 0.9645135998725891,
+          "description": "a wooden bench sitting in front of a large glass window with a view of a courtyard and trees",
+          "metadata": {
+            "image_id": 465092,
+            "filename": "000000465092.jpg",
+            "width": 640,
+            "height": 480,
+            "caption": "A hallway with two wooden benches and large windows.",
+            "date_captured": "2013-11-16 17:46:57",
+            "url": "http://images.cocodataset.org/train2017/000000465092.jpg",
+            "license": 4,
+            "image_path": "data\\COCO\\images\\000000465092.jpg",
+            "embedding_id": 11395
+          }
+        },
+        {
+          "rank": 2,
+          "similarity": 0.9656829833984375,
+          "description": "a black and white photo of a room with benches and a staircase leading up to the second floor",
+          "metadata": {
+            "image_id": 49315,
+            "filename": "000000049315.jpg",
+            "width": 640,
+            "height": 466,
+            "caption": "Several long tables and benches line a large hall.",
+            "date_captured": "2013-11-16 17:09:05",
+            "url": "http://images.cocodataset.org/train2017/000000049315.jpg",
+            "license": 7,
+            "image_path": "data\\COCO\\images\\000000049315.jpg",
+            "embedding_id": 49609
+          }
+        },
+        {
+          "rank": 3,
+          "similarity": 0.9672457575798035,
+          "description": "a black and white photo of a church with pew pew pew pew benches and a chandel chandel chandel chandel chandel chandel",
+          "metadata": {
+            "image_id": 532504,
+            "filename": "000000532504.jpg",
+            "width": 514,
+            "height": 640,
+            "caption": "Black and white photo of the inside of a room with many tables and benches.",
+            "date_captured": "2013-11-16 17:09:12",
+            "url": "http://images.cocodataset.org/train2017/000000532504.jpg",
+            "license": 7,
+            "image_path": "data\\COCO\\images\\000000532504.jpg",
+            "embedding_id": 49262
+          }
+        }
+      ]
+    },
+    {
+      "image_id": "000000311953",
+      "query": "a black bear in a forest nearing a body of water ",
+      "ground_truth_path": "C:\\Users\\binbi\\Desktop\\DataLab2Project\\data\\COCO\\images\\000000311953.jpg",
+      "iterations": 3,
+      "initial_rank": null,
+      "final_rank": null,
+      "improvement": null,
+      "query_original": "a black bear in a forest nearing a body of water ",
+      "query_final": "black bear in a forest near a lake or river",
+      "reformulated": true,
+      "max_iterations_reached": true,
+      "timestamp": "2025-11-03T22:15:06.556188",
+      "success": false,
+      "top_3_images": [
+        {
+          "rank": 1,
+          "similarity": 0.9537779688835144,
+          "description": "a black bear in the woods near a pine tree and a small pine tree on the side of the road",
+          "metadata": {
+            "image_id": 361693,
+            "filename": "000000361693.jpg",
+            "width": 640,
+            "height": 425,
+            "caption": "A black bear that is walking in the woods.",
+            "date_captured": "2013-11-18 13:14:34",
+            "url": "http://images.cocodataset.org/train2017/000000361693.jpg",
+            "license": 1,
+            "image_path": "data\\COCO\\images\\000000361693.jpg",
+            "embedding_id": 16811
+          }
+        },
+        {
+          "rank": 2,
+          "similarity": 0.9558092355728149,
+          "description": "a black bear in the water with a log in it's mouth and a fish in its mouth",
+          "metadata": {
+            "image_id": 54875,
+            "filename": "000000054875.jpg",
+            "width": 640,
+            "height": 430,
+            "caption": "A large black bear forging across a river filled with fast moving water.",
+            "date_captured": "2013-11-18 13:49:59",
+            "url": "http://images.cocodataset.org/train2017/000000054875.jpg",
+            "license": 3,
+            "image_path": "data\\COCO\\images\\000000054875.jpg",
+            "embedding_id": 75672
+          }
+        },
+        {
+          "rank": 3,
+          "similarity": 0.959295392036438,
+          "description": "a black cat sitting in the middle of a tree with red and yellow leaves on it's branches",
+          "metadata": {
+            "image_id": 250365,
+            "filename": "000000250365.jpg",
+            "width": 427,
+            "height": 640,
+            "caption": "A black animal stands behind a few trees with fall colored leaves.",
+            "date_captured": "2013-11-18 12:34:46",
+            "url": "http://images.cocodataset.org/train2017/000000250365.jpg",
+            "license": 1,
+            "image_path": "data\\COCO\\images\\000000250365.jpg",
+            "embedding_id": 12273
+          }
+        }
+      ]
+    },
+    {
+      "image_id": "000000258753",
+      "query": "A red cardinal perches on a wine glass.",
+      "ground_truth_path": "C:\\Users\\binbi\\Desktop\\DataLab2Project\\data\\COCO\\images\\000000258753.jpg",
+      "iterations": 1,
+      "initial_rank": 1,
+      "final_rank": 1,
+      "improvement": 0,
+      "query_original": "A red cardinal perches on a wine glass.",
+      "query_final": "A red cardinal perches on a wine glass.",
+      "reformulated": false,
+      "max_iterations_reached": false,
+      "timestamp": "2025-11-03T22:15:14.129528",
+      "success": true,
+      "top_3_images": [
+        {
+          "rank": 1,
+          "similarity": 0.9357936382293701,
+          "description": "a red bird sitting on top of a wine glass in front of a red and blue background with a black background",
+          "metadata": {
+            "image_id": 258753,
+            "filename": "000000258753.jpg",
+            "width": 500,
+            "height": 375,
+            "caption": "A red cardinal perches on a wine glass.",
+            "date_captured": "2013-11-17 00:00:55",
+            "url": "http://images.cocodataset.org/train2017/000000258753.jpg",
+            "license": 1,
+            "image_path": "data\\COCO\\images\\000000258753.jpg",
+            "embedding_id": 55302
+          }
+        },
+        {
+          "rank": 2,
+          "similarity": 0.9608761072158813,
+          "description": "a bird sitting on top of a birdbater in a grassy field next to a bird feeder",
+          "metadata": {
+            "image_id": 174864,
+            "filename": "000000174864.jpg",
+            "width": 514,
+            "height": 640,
+            "caption": "A bird near a birdbath in a yard.",
+            "date_captured": "2013-11-17 04:41:40",
+            "url": "http://images.cocodataset.org/train2017/000000174864.jpg",
+            "license": 4,
+            "image_path": "data\\COCO\\images\\000000174864.jpg",
+            "embedding_id": 58460
+          }
+        },
+        {
+          "rank": 3,
+          "similarity": 0.9617201685905457,
+          "description": "a small bird sitting on top of a bowl on a table next to a bowl on the floor",
+          "metadata": {
+            "image_id": 370857,
+            "filename": "000000370857.jpg",
+            "width": 640,
+            "height": 474,
+            "caption": "A black white and red bird perched on a bowl",
+            "date_captured": "2013-11-15 14:20:14",
+            "url": "http://images.cocodataset.org/train2017/000000370857.jpg",
+            "license": 1,
+            "image_path": "data\\COCO\\images\\000000370857.jpg",
+            "embedding_id": 47468
+          }
+        }
+      ]
+    },
+    {
+      "image_id": "000000014108",
+      "query": "A small black dog watching an animal on a TV screen.",
+      "ground_truth_path": "C:\\Users\\binbi\\Desktop\\DataLab2Project\\data\\COCO\\images\\000000014108.jpg",
+      "iterations": 3,
+      "initial_rank": null,
+      "final_rank": null,
+      "improvement": null,
+      "query_original": "A small black dog watching an animal on a TV screen.",
+      "query_final": "small black dog watching a cat on a television screen",
+      "reformulated": true,
+      "max_iterations_reached": true,
+      "timestamp": "2025-11-03T22:15:32.091874",
+      "success": false,
+      "top_3_images": [
+        {
+          "rank": 1,
+          "similarity": 0.9343875050544739,
+          "description": "a cat looking at a television screen with a picture of a dog in it's cage on it",
+          "metadata": {
+            "image_id": 180373,
+            "filename": "000000180373.jpg",
+            "width": 500,
+            "height": 375,
+            "caption": "A cat standing in front of a TV showing a dog in a  cage.",
+            "date_captured": "2013-11-17 21:49:35",
+            "url": "http://images.cocodataset.org/train2017/000000180373.jpg",
+            "license": 2,
+            "image_path": "data\\COCO\\images\\000000180373.jpg",
+            "embedding_id": 12939
+          }
+        },
+        {
+          "rank": 2,
+          "similarity": 0.9440782070159912,
+          "description": "a black cat laying on a bed in front of a television set and a plant in the corner of the room",
+          "metadata": {
+            "image_id": 223833,
+            "filename": "000000223833.jpg",
+            "width": 640,
+            "height": 480,
+            "caption": "The cat rests on the bed while watching television.",
+            "date_captured": "2013-11-17 21:26:11",
+            "url": "http://images.cocodataset.org/train2017/000000223833.jpg",
+            "license": 3,
+            "image_path": "data\\COCO\\images\\000000223833.jpg",
+            "embedding_id": 12793
+          }
+        },
+        {
+          "rank": 3,
+          "similarity": 0.9468584060668945,
+          "description": "a dog sitting on the floor in front of a flat screen tv with a picture of a dog on the screen",
+          "metadata": {
+            "image_id": 179441,
+            "filename": "000000179441.jpg",
+            "width": 640,
+            "height": 480,
+            "caption": "The living room has a dog sitting on the floor watching the television. ",
+            "date_captured": "2013-11-15 22:52:51",
+            "url": "http://images.cocodataset.org/train2017/000000179441.jpg",
+            "license": 1,
+            "image_path": "data\\COCO\\images\\000000179441.jpg",
+            "embedding_id": 4578
+          }
+        }
+      ]
+    },
+    {
+      "image_id": "000000350874",
+      "query": "A man on a motorbike with a side car.",
+      "ground_truth_path": "C:\\Users\\binbi\\Desktop\\DataLab2Project\\data\\COCO\\images\\000000350874.jpg",
+      "iterations": 3,
+      "initial_rank": 1,
+      "final_rank": 1,
+      "improvement": 0,
+      "query_original": "A man on a motorbike with a side car.",
+      "query_final": "man riding motorcycle with sidecar attached to the rear of the bike",
+      "reformulated": true,
+      "max_iterations_reached": true,
+      "timestamp": "2025-11-03T22:15:45.499808",
+      "success": true,
+      "top_3_images": [
+        {
+          "rank": 1,
+          "similarity": 0.9538392424583435,
+          "description": "a man riding a motorcycle with a sidecar attached to the back of the motorcycle and a woman standing next to it",
+          "metadata": {
+            "image_id": 350874,
+            "filename": "000000350874.jpg",
+            "width": 640,
+            "height": 480,
+            "caption": "A man on a motorbike with a side car.",
+            "date_captured": "2013-11-15 19:32:38",
+            "url": "http://images.cocodataset.org/train2017/000000350874.jpg",
+            "license": 4,
+            "image_path": "data\\COCO\\images\\000000350874.jpg",
+            "embedding_id": 3905
+          }
+        },
+        {
+          "rank": 2,
+          "similarity": 0.954281210899353,
+          "description": "a man in a suit and hat sitting on a motorcycle in a grassy field with trees in the background",
+          "metadata": {
+            "image_id": 365202,
+            "filename": "000000365202.jpg",
+            "width": 640,
+            "height": 480,
+            "caption": "A man riding on the back of a motorcycle.",
+            "date_captured": "2013-11-15 12:27:20",
+            "url": "http://images.cocodataset.org/train2017/000000365202.jpg",
+            "license": 1,
+            "image_path": "data\\COCO\\images\\000000365202.jpg",
+            "embedding_id": 46984
+          }
+        },
+        {
+          "rank": 3,
+          "similarity": 0.956918478012085,
+          "description": "a man riding a motorcycle down a street next to a grass covered area with trees in the background",
+          "metadata": {
+            "image_id": 113559,
+            "filename": "000000113559.jpg",
+            "width": 640,
+            "height": 427,
+            "caption": "A man drives fast in a motorcycle with kids in the sidecar",
+            "date_captured": "2013-11-14 14:18:59",
+            "url": "http://images.cocodataset.org/train2017/000000113559.jpg",
+            "license": 3,
+            "image_path": "data\\COCO\\images\\000000113559.jpg",
+            "embedding_id": 3828
+          }
+        }
+      ]
+    },
+    {
+      "image_id": "000000509609",
+      "query": "A cat cuddles an elephant toy on the bed.",
+      "ground_truth_path": "C:\\Users\\binbi\\Desktop\\DataLab2Project\\data\\COCO\\images\\000000509609.jpg",
+      "iterations": 3,
+      "initial_rank": null,
+      "final_rank": null,
+      "improvement": null,
+      "query_original": "A cat cuddles an elephant toy on the bed.",
+      "query_final": "cat cuddling a plush elephant toy on a cozy bedroom bed with soft blankets and warm lighting",
+      "reformulated": true,
+      "max_iterations_reached": true,
+      "timestamp": "2025-11-03T22:15:59.181091",
+      "success": false,
+      "top_3_images": [
+        {
+          "rank": 1,
+          "similarity": 0.9484449028968811,
+          "description": "a cat laying on a bed next to a stuffed elephant and a stuffed elephant stuffed into a blanket",
+          "metadata": {
+            "image_id": 546013,
+            "filename": "000000546013.jpg",
+            "width": 640,
+            "height": 480,
+            "caption": "an image of a cat next to a stuffed animal",
+            "date_captured": "2013-11-17 16:08:39",
+            "url": "http://images.cocodataset.org/train2017/000000546013.jpg",
+            "license": 4,
+            "image_path": "data\\COCO\\images\\000000546013.jpg",
+            "embedding_id": 63243
+          }
+        },
+        {
+          "rank": 2,
+          "similarity": 0.9546749591827393,
+          "description": "a cat laying on top of a teddy bear stuffed into a teddy bear stuffed into a teddy bear stuffed into a teddy bear stuffed into a teddy",
+          "metadata": {
+            "image_id": 115403,
+            "filename": "000000115403.jpg",
+            "width": 500,
+            "height": 375,
+            "caption": "A cat lying on a chair with a stuff animal on top of it.",
+            "date_captured": "2013-11-17 16:07:43",
+            "url": "http://images.cocodataset.org/train2017/000000115403.jpg",
+            "license": 1,
+            "image_path": "data\\COCO\\images\\000000115403.jpg",
+            "embedding_id": 68072
+          }
+        },
+        {
+          "rank": 3,
+          "similarity": 0.962913453578949,
+          "description": "a black and white cat laying on a couch with a red bow tie around it's neck",
+          "metadata": {
+            "image_id": 236117,
+            "filename": "000000236117.jpg",
+            "width": 426,
+            "height": 640,
+            "caption": "A black and white cat laying on a couch holding a stuffed animal.",
+            "date_captured": "2013-11-17 16:07:31",
+            "url": "http://images.cocodataset.org/train2017/000000236117.jpg",
+            "license": 2,
+            "image_path": "data\\COCO\\images\\000000236117.jpg",
+            "embedding_id": 12748
+          }
+        }
+      ]
+    }
+  ],
+  "metrics": {
+    "total_queries": 20,
+    "successful_retrievals": 4,
+    "success_rate": 0.2,
+    "rank_distribution": {
+      "1": 3,
+      "2": 0,
+      "3": 1,
+      "not_found": 16
+    },
+    "rank_1_rate": 0.15,
+    "rank_1_2_rate": 0.15,
+    "rank_1_2_3_rate": 0.2,
+    "improvement_stats": {
+      "improved_count": 0,
+      "degraded_count": 0,
+      "no_change_count": 3,
+      "avg_improvement": 0,
+      "avg_degradation": 0
+    },
+    "reformulation_stats": {
+      "reformulated_count": 17,
+      "reformulation_rate": 0.85
+    },
+    "avg_iterations": 2.7
+  },
+  "timestamp_last_update": "2025-11-03T22:15:59.182091"
+}

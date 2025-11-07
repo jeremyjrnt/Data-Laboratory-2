@@ -1,0 +1,74 @@
+{
+  "test_image": "000000000077.jpg",
+  "original_query": "A young man riding a skateboard into the air.",
+  "reformulated_query": "\"A young man performing a trick on a skateboard while airborne, ideally with a focus on dynamic action and a clear view of the skateboard.\"",
+  "baseline_rank": 998,
+  "new_rank_after_reformulation": 693,
+  "stage1_top3": [
+    {
+      "rank": 1,
+      "faiss_index": 89611,
+      "score": 0.33365941047668457,
+      "raw_faiss_value": 0.33365941047668457,
+      "filename": "000000389660.jpg",
+      "blip_caption": "there is a male skateboarder that is doing a trick on a half pipe at a skateboard park in front of a large crowd of people"
+    },
+    {
+      "rank": 2,
+      "faiss_index": 92651,
+      "score": 0.33257782459259033,
+      "raw_faiss_value": 0.33257782459259033,
+      "filename": "000000164908.jpg",
+      "blip_caption": "there is a male skateboarder doing a trick in the air with his skateboard in front of him and a crowd of people in the background"
+    },
+    {
+      "rank": 3,
+      "faiss_index": 92759,
+      "score": 0.3325464427471161,
+      "raw_faiss_value": 0.3325464427471161,
+      "filename": "000000546575.jpg",
+      "blip_caption": "there is a young man riding a skateboard in the middle of the street with another young man on the other side of the road in the background"
+    }
+  ],
+  "stage2_top3": [
+    {
+      "rank": 1,
+      "faiss_index": 82427,
+      "score": 0.3059081733226776,
+      "raw_faiss_value": 0.3059081733226776,
+      "filename": "000000480116.jpg",
+      "blip_caption": "there is a male skateboarder doing a trick on a skateboard in the air with trees in the background and a person in the foreground"
+    },
+    {
+      "rank": 2,
+      "faiss_index": 93790,
+      "score": 0.30562615394592285,
+      "raw_faiss_value": 0.30562615394592285,
+      "filename": "000000440105.jpg",
+      "blip_caption": "this is a blurry photo of a skateboarder doing a trick in the air over a small skateboard on a dirt surface with trees in the background"
+    },
+    {
+      "rank": 3,
+      "faiss_index": 92759,
+      "score": 0.300746887922287,
+      "raw_faiss_value": 0.300746887922287,
+      "filename": "000000546575.jpg",
+      "blip_caption": "there is a young man riding a skateboard in the middle of the street with another young man on the other side of the road in the background"
+    }
+  ],
+  "rank_improvement": 305,
+  "improvement_percentage": 30.561122244488974,
+  "performance_status": "IMPROVED",
+  "stage1_blip_descriptions": [
+    "there is a male skateboarder that is doing a trick on a half pipe at a skateboard park in front of a large crowd of people",
+    "there is a male skateboarder doing a trick in the air with his skateboard in front of him and a crowd of people in the background",
+    "there is a young man riding a skateboard in the middle of the street with another young man on the other side of the road in the background"
+  ],
+  "stage2_blip_descriptions": [
+    "there is a male skateboarder doing a trick on a skateboard in the air with trees in the background and a person in the foreground",
+    "this is a blurry photo of a skateboarder doing a trick in the air over a small skateboard on a dirt surface with trees in the background",
+    "there is a young man riding a skateboard in the middle of the street with another young man on the other side of the road in the background"
+  ],
+  "target_in_stage1_top3": false,
+  "target_in_stage2_top3": false
+}

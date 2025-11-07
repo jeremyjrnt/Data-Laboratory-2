@@ -1,0 +1,758 @@
+{
+  "analysis_date": "2025-09-22T19:34:14.231170",
+  "statistics": {
+    "dataset_info": {
+      "vectordb_name": "COCO_VectorDB",
+      "evaluation_date": "2025-09-22T17:58:41.576890",
+      "total_images_evaluated": 118287,
+      "total_images_in_db": 118287,
+      "exact_rank_search": true,
+      "max_possible_rank": 118287
+    },
+    "basic_statistics": {
+      "mean_rank": 541.7718599677056,
+      "median_rank": 58.0,
+      "std_rank": 3168.4365713133902,
+      "min_rank": 1,
+      "max_rank": 118013,
+      "range": 118012
+    },
+    "percentiles": {
+      "P1": 1.0,
+      "P5": 1.0,
+      "P10": 1.0,
+      "P25": 7.0,
+      "P50": 58.0,
+      "P75": 343.0,
+      "P90": 1122.0,
+      "P95": 1918.0,
+      "P99": 5799.0,
+      "P99.5": 10590.549999999886,
+      "P99.9": 53396.66800000839
+    },
+    "top_k_accuracy": {
+      "top_1": {
+        "accuracy": 0.11160989796004633,
+        "count": 13202,
+        "percentage": "11.16%"
+      },
+      "top_2": {
+        "accuracy": 0.15613719174550036,
+        "count": 18469,
+        "percentage": "15.61%"
+      },
+      "top_3": {
+        "accuracy": 0.18676608587587817,
+        "count": 22092,
+        "percentage": "18.68%"
+      },
+      "top_4": {
+        "accuracy": 0.20944820648084744,
+        "count": 24775,
+        "percentage": "20.94%"
+      },
+      "top_5": {
+        "accuracy": 0.2280977622223913,
+        "count": 26981,
+        "percentage": "22.81%"
+      },
+      "top_10": {
+        "accuracy": 0.29290623652641457,
+        "count": 34647,
+        "percentage": "29.29%"
+      },
+      "top_20": {
+        "accuracy": 0.3679863383127478,
+        "count": 43528,
+        "percentage": "36.80%"
+      },
+      "top_50": {
+        "accuracy": 0.482318428905966,
+        "count": 57052,
+        "percentage": "48.23%"
+      },
+      "top_100": {
+        "accuracy": 0.5754309433834657,
+        "count": 68066,
+        "percentage": "57.54%"
+      },
+      "top_200": {
+        "accuracy": 0.6730494475301597,
+        "count": 79613,
+        "percentage": "67.30%"
+      },
+      "top_500": {
+        "accuracy": 0.8006036166273555,
+        "count": 94701,
+        "percentage": "80.06%"
+      },
+      "top_1000": {
+        "accuracy": 0.8875447006010804,
+        "count": 104985,
+        "percentage": "88.75%"
+      },
+      "top_2000": {
+        "accuracy": 0.9533592026173628,
+        "count": 112770,
+        "percentage": "95.34%"
+      },
+      "top_5000": {
+        "accuracy": 0.9879783915392224,
+        "count": 116865,
+        "percentage": "98.80%"
+      },
+      "top_10000": {
+        "accuracy": 0.9946232468487661,
+        "count": 117651,
+        "percentage": "99.46%"
+      },
+      "top_20000": {
+        "accuracy": 0.9972947153956057,
+        "count": 117967,
+        "percentage": "99.73%"
+      }
+    },
+    "rank_distribution": {
+      "perfect_match": 13202,
+      "excellent_2_5": 13779,
+      "very_good_6_10": 7666,
+      "good_11_20": 8881,
+      "good_21_50": 13524,
+      "fair_51_100": 11014,
+      "fair_101_200": 11547,
+      "poor_201_500": 15088,
+      "poor_501_1000": 10284,
+      "very_poor_1001_5000": 11880,
+      "extremely_poor_5000_plus": 1422
+    },
+    "quality_analysis": {
+      "perfect_rank_1": {
+        "count": 13202,
+        "percentage": "11.16%"
+      },
+      "excellent_rank_2_10": {
+        "count": 21445,
+        "percentage": "18.13%"
+      },
+      "good_rank_11_100": {
+        "count": 33419,
+        "percentage": "28.25%"
+      },
+      "fair_rank_101_1000": {
+        "count": 36919,
+        "percentage": "31.21%"
+      },
+      "poor_rank_1000_plus": {
+        "count": 13302,
+        "percentage": "11.25%"
+      }
+    },
+    "rank_frequency": {
+      "most_common_ranks": [
+        [
+          1,
+          13202
+        ],
+        [
+          2,
+          5267
+        ],
+        [
+          3,
+          3623
+        ],
+        [
+          4,
+          2683
+        ],
+        [
+          5,
+          2206
+        ],
+        [
+          6,
+          1929
+        ],
+        [
+          7,
+          1666
+        ],
+        [
+          8,
+          1466
+        ],
+        [
+          9,
+          1376
+        ],
+        [
+          10,
+          1229
+        ],
+        [
+          11,
+          1095
+        ],
+        [
+          12,
+          1058
+        ],
+        [
+          13,
+          1018
+        ],
+        [
+          14,
+          1003
+        ],
+        [
+          15,
+          903
+        ],
+        [
+          16,
+          868
+        ],
+        [
+          17,
+          795
+        ],
+        [
+          18,
+          748
+        ],
+        [
+          19,
+          715
+        ],
+        [
+          21,
+          683
+        ]
+      ],
+      "unique_ranks": 5208,
+      "rank_1_count": 13202
+    }
+  },
+  "examples": {
+    "perfect_matches": [
+      {
+        "index": 0,
+        "rank": 1
+      },
+      {
+        "index": 2,
+        "rank": 1
+      },
+      {
+        "index": 8,
+        "rank": 1
+      },
+      {
+        "index": 12,
+        "rank": 1
+      },
+      {
+        "index": 13,
+        "rank": 1
+      },
+      {
+        "index": 14,
+        "rank": 1
+      },
+      {
+        "index": 15,
+        "rank": 1
+      },
+      {
+        "index": 21,
+        "rank": 1
+      },
+      {
+        "index": 25,
+        "rank": 1
+      },
+      {
+        "index": 30,
+        "rank": 1
+      },
+      {
+        "index": 31,
+        "rank": 1
+      },
+      {
+        "index": 32,
+        "rank": 1
+      },
+      {
+        "index": 33,
+        "rank": 1
+      },
+      {
+        "index": 61,
+        "rank": 1
+      },
+      {
+        "index": 68,
+        "rank": 1
+      },
+      {
+        "index": 69,
+        "rank": 1
+      },
+      {
+        "index": 71,
+        "rank": 1
+      },
+      {
+        "index": 74,
+        "rank": 1
+      },
+      {
+        "index": 77,
+        "rank": 1
+      },
+      {
+        "index": 101,
+        "rank": 1
+      },
+      {
+        "index": 111,
+        "rank": 1
+      },
+      {
+        "index": 112,
+        "rank": 1
+      },
+      {
+        "index": 118,
+        "rank": 1
+      },
+      {
+        "index": 121,
+        "rank": 1
+      },
+      {
+        "index": 124,
+        "rank": 1
+      }
+    ],
+    "excellent_matches": [
+      {
+        "index": 98895,
+        "rank": 4
+      },
+      {
+        "index": 88942,
+        "rank": 3
+      },
+      {
+        "index": 37659,
+        "rank": 7
+      },
+      {
+        "index": 115408,
+        "rank": 9
+      },
+      {
+        "index": 10962,
+        "rank": 7
+      },
+      {
+        "index": 37382,
+        "rank": 2
+      },
+      {
+        "index": 104431,
+        "rank": 8
+      },
+      {
+        "index": 95860,
+        "rank": 4
+      },
+      {
+        "index": 42145,
+        "rank": 7
+      },
+      {
+        "index": 82029,
+        "rank": 5
+      },
+      {
+        "index": 91800,
+        "rank": 5
+      },
+      {
+        "index": 43795,
+        "rank": 7
+      },
+      {
+        "index": 2064,
+        "rank": 2
+      },
+      {
+        "index": 61519,
+        "rank": 2
+      },
+      {
+        "index": 30324,
+        "rank": 8
+      },
+      {
+        "index": 52781,
+        "rank": 3
+      },
+      {
+        "index": 107593,
+        "rank": 5
+      },
+      {
+        "index": 63530,
+        "rank": 2
+      },
+      {
+        "index": 47655,
+        "rank": 2
+      },
+      {
+        "index": 33189,
+        "rank": 6
+      },
+      {
+        "index": 55106,
+        "rank": 9
+      },
+      {
+        "index": 74932,
+        "rank": 8
+      },
+      {
+        "index": 11294,
+        "rank": 3
+      },
+      {
+        "index": 103849,
+        "rank": 4
+      },
+      {
+        "index": 18123,
+        "rank": 10
+      }
+    ],
+    "good_matches": [
+      {
+        "index": 18143,
+        "rank": 78
+      },
+      {
+        "index": 6601,
+        "rank": 80
+      },
+      {
+        "index": 109380,
+        "rank": 24
+      },
+      {
+        "index": 8929,
+        "rank": 19
+      },
+      {
+        "index": 26617,
+        "rank": 57
+      },
+      {
+        "index": 17397,
+        "rank": 14
+      },
+      {
+        "index": 44808,
+        "rank": 55
+      },
+      {
+        "index": 41765,
+        "rank": 84
+      },
+      {
+        "index": 103458,
+        "rank": 35
+      },
+      {
+        "index": 10251,
+        "rank": 13
+      },
+      {
+        "index": 41232,
+        "rank": 13
+      },
+      {
+        "index": 75994,
+        "rank": 52
+      },
+      {
+        "index": 48033,
+        "rank": 12
+      },
+      {
+        "index": 75703,
+        "rank": 22
+      },
+      {
+        "index": 81341,
+        "rank": 66
+      },
+      {
+        "index": 66568,
+        "rank": 17
+      },
+      {
+        "index": 86088,
+        "rank": 48
+      },
+      {
+        "index": 90023,
+        "rank": 21
+      },
+      {
+        "index": 85356,
+        "rank": 36
+      },
+      {
+        "index": 12937,
+        "rank": 42
+      },
+      {
+        "index": 63358,
+        "rank": 14
+      },
+      {
+        "index": 69848,
+        "rank": 32
+      },
+      {
+        "index": 21876,
+        "rank": 59
+      },
+      {
+        "index": 80198,
+        "rank": 93
+      },
+      {
+        "index": 66918,
+        "rank": 49
+      }
+    ],
+    "poor_matches": [
+      {
+        "index": 100359,
+        "rank": 1062
+      },
+      {
+        "index": 113201,
+        "rank": 2845
+      },
+      {
+        "index": 103114,
+        "rank": 1454
+      },
+      {
+        "index": 22500,
+        "rank": 1813
+      },
+      {
+        "index": 113709,
+        "rank": 1433
+      },
+      {
+        "index": 109924,
+        "rank": 2028
+      },
+      {
+        "index": 20790,
+        "rank": 3899
+      },
+      {
+        "index": 41717,
+        "rank": 2827
+      },
+      {
+        "index": 46094,
+        "rank": 1241
+      },
+      {
+        "index": 54831,
+        "rank": 2244
+      },
+      {
+        "index": 70446,
+        "rank": 3125
+      },
+      {
+        "index": 96366,
+        "rank": 1096
+      },
+      {
+        "index": 19184,
+        "rank": 2837
+      },
+      {
+        "index": 103272,
+        "rank": 1475
+      },
+      {
+        "index": 3291,
+        "rank": 5761
+      },
+      {
+        "index": 27558,
+        "rank": 2798
+      },
+      {
+        "index": 15344,
+        "rank": 4863
+      },
+      {
+        "index": 74203,
+        "rank": 1033
+      },
+      {
+        "index": 36154,
+        "rank": 2813
+      },
+      {
+        "index": 43234,
+        "rank": 3079
+      },
+      {
+        "index": 45627,
+        "rank": 1051
+      },
+      {
+        "index": 84125,
+        "rank": 1021
+      },
+      {
+        "index": 93089,
+        "rank": 4230
+      },
+      {
+        "index": 83800,
+        "rank": 3424
+      },
+      {
+        "index": 105610,
+        "rank": 2219
+      }
+    ],
+    "worst_matches": [
+      {
+        "index": 53502,
+        "rank": 118013
+      },
+      {
+        "index": 112549,
+        "rank": 116408
+      },
+      {
+        "index": 33017,
+        "rank": 114766
+      },
+      {
+        "index": 60093,
+        "rank": 114715
+      },
+      {
+        "index": 86294,
+        "rank": 114344
+      },
+      {
+        "index": 15776,
+        "rank": 114225
+      },
+      {
+        "index": 112548,
+        "rank": 113524
+      },
+      {
+        "index": 66780,
+        "rank": 111851
+      },
+      {
+        "index": 10018,
+        "rank": 111065
+      },
+      {
+        "index": 27242,
+        "rank": 110935
+      },
+      {
+        "index": 99362,
+        "rank": 110692
+      },
+      {
+        "index": 99375,
+        "rank": 110637
+      },
+      {
+        "index": 32699,
+        "rank": 110624
+      },
+      {
+        "index": 27324,
+        "rank": 109697
+      },
+      {
+        "index": 86354,
+        "rank": 109579
+      },
+      {
+        "index": 86311,
+        "rank": 108127
+      },
+      {
+        "index": 18399,
+        "rank": 107109
+      },
+      {
+        "index": 73095,
+        "rank": 105824
+      },
+      {
+        "index": 99320,
+        "rank": 104363
+      },
+      {
+        "index": 86280,
+        "rank": 103440
+      },
+      {
+        "index": 19249,
+        "rank": 102518
+      },
+      {
+        "index": 2954,
+        "rank": 100904
+      },
+      {
+        "index": 99165,
+        "rank": 100852
+      },
+      {
+        "index": 117965,
+        "rank": 100493
+      },
+      {
+        "index": 50997,
+        "rank": 100389
+      }
+    ]
+  },
+  "summary": {
+    "total_images": 118287,
+    "performance_grade": "Poor (F)",
+    "key_insights": [
+      "Room for improvement: Only 11.2% of images are perfectly matched",
+      "Weak top-5 performance: Only 22.8% of correct images in top 5",
+      "Good median performance: Half of all images rank within top 58"
+    ]
+  }
+}
