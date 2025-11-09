@@ -1,0 +1,74 @@
+{
+  "test_image": "000000000370.jpg",
+  "original_query": "A little girl holding wet broccoli in her hand. ",
+  "reformulated_query": "\"A young girl holding a single, wet head of broccoli in her hand, close-up shot.\"",
+  "baseline_rank": 26,
+  "new_rank_after_reformulation": 46,
+  "stage1_top3": [
+    {
+      "rank": 1,
+      "faiss_index": 86350,
+      "score": 0.3082948923110962,
+      "raw_faiss_value": 0.3082948923110962,
+      "filename": "000000455809.jpg",
+      "blip_caption": "there is a little girl eating broccoli in a bowl on the kitchen counter with a stove in the back ground and a microwave in the background"
+    },
+    {
+      "rank": 2,
+      "faiss_index": 83534,
+      "score": 0.3081813454627991,
+      "raw_faiss_value": 0.3081813454627991,
+      "filename": "000000053897.jpg",
+      "blip_caption": "there is a little girl sitting in a high chair with a piece of broccoli in one hand and a spoon in the other side of her hand"
+    },
+    {
+      "rank": 3,
+      "faiss_index": 82866,
+      "score": 0.3043433129787445,
+      "raw_faiss_value": 0.3043433129787445,
+      "filename": "000000062344.jpg",
+      "blip_caption": "there is a person cutting broccoli on a cutting board on a kitchen counter with a red kettle in the background and a green cutting board in the foreground"
+    }
+  ],
+  "stage2_top3": [
+    {
+      "rank": 1,
+      "faiss_index": 83909,
+      "score": 0.32610172033309937,
+      "raw_faiss_value": 0.32610172033309937,
+      "filename": "000000084268.jpg",
+      "blip_caption": "there is a woman holding a piece of broccoli in front of her face and a bowl in the back of her head and a shelf in the background"
+    },
+    {
+      "rank": 2,
+      "faiss_index": 86331,
+      "score": 0.293207049369812,
+      "raw_faiss_value": 0.293207049369812,
+      "filename": "000000040474.jpg",
+      "blip_caption": "there is a close up of a piece of broccoli that has been sprinkled with tiny white dots on the top of the head of it"
+    },
+    {
+      "rank": 3,
+      "faiss_index": 19509,
+      "score": 0.2916185259819031,
+      "raw_faiss_value": 0.2916185259819031,
+      "filename": "000000142500.jpg",
+      "blip_caption": "this is a close up of a person's hand holding a broccoli floret in the middle of a garden with green leaves in the background"
+    }
+  ],
+  "rank_improvement": -20,
+  "improvement_percentage": -76.92307692307693,
+  "performance_status": "DEGRADED",
+  "stage1_blip_descriptions": [
+    "there is a little girl eating broccoli in a bowl on the kitchen counter with a stove in the back ground and a microwave in the background",
+    "there is a little girl sitting in a high chair with a piece of broccoli in one hand and a spoon in the other side of her hand",
+    "there is a person cutting broccoli on a cutting board on a kitchen counter with a red kettle in the background and a green cutting board in the foreground"
+  ],
+  "stage2_blip_descriptions": [
+    "there is a woman holding a piece of broccoli in front of her face and a bowl in the back of her head and a shelf in the background",
+    "there is a close up of a piece of broccoli that has been sprinkled with tiny white dots on the top of the head of it",
+    "this is a close up of a person's hand holding a broccoli floret in the middle of a garden with green leaves in the background"
+  ],
+  "target_in_stage1_top3": false,
+  "target_in_stage2_top3": false
+}

@@ -1,0 +1,74 @@
+{
+  "test_image": "000000000077.jpg",
+  "original_query": "A young man riding a skateboard into the air.",
+  "reformulated_query": "\"Young man performing an aerial skateboard trick, devoid of any obstacles or crowds, in an open outdoor setting\"",
+  "baseline_rank": 998,
+  "new_rank_after_reformulation": 1581,
+  "stage1_top3": [
+    {
+      "rank": 1,
+      "faiss_index": 89611,
+      "score": 0.33365941047668457,
+      "raw_faiss_value": 0.33365941047668457,
+      "filename": "000000389660.jpg",
+      "blip_caption": "there is a male skateboarder that is doing a trick on a half pipe at a skateboard park in front of a large crowd of people"
+    },
+    {
+      "rank": 2,
+      "faiss_index": 92651,
+      "score": 0.33257782459259033,
+      "raw_faiss_value": 0.33257782459259033,
+      "filename": "000000164908.jpg",
+      "blip_caption": "there is a male skateboarder doing a trick in the air with his skateboard in front of him and a crowd of people in the background"
+    },
+    {
+      "rank": 3,
+      "faiss_index": 92759,
+      "score": 0.3325464427471161,
+      "raw_faiss_value": 0.3325464427471161,
+      "filename": "000000546575.jpg",
+      "blip_caption": "there is a young man riding a skateboard in the middle of the street with another young man on the other side of the road in the background"
+    }
+  ],
+  "stage2_top3": [
+    {
+      "rank": 1,
+      "faiss_index": 93641,
+      "score": 0.30469033122062683,
+      "raw_faiss_value": 0.30469033122062683,
+      "filename": "000000242276.jpg",
+      "blip_caption": "there is a man that is doing a trick on a snowboard in the air in front of a crowd of people with flags and trees in the background"
+    },
+    {
+      "rank": 2,
+      "faiss_index": 21472,
+      "score": 0.29684752225875854,
+      "raw_faiss_value": 0.29684752225875854,
+      "filename": "000000133386.jpg",
+      "blip_caption": "there are a lot of skateboarders that are doing tricks on the railings at the skateboarder's park in the day time of the day"
+    },
+    {
+      "rank": 3,
+      "faiss_index": 90095,
+      "score": 0.2954570949077606,
+      "raw_faiss_value": 0.2954570949077606,
+      "filename": "000000279710.jpg",
+      "blip_caption": "there is a male skateboarder doing a trick in the air in front of a large building with a clock tower on the side of the building"
+    }
+  ],
+  "rank_improvement": -583,
+  "improvement_percentage": -58.416833667334664,
+  "performance_status": "DEGRADED",
+  "stage1_blip_descriptions": [
+    "there is a male skateboarder that is doing a trick on a half pipe at a skateboard park in front of a large crowd of people",
+    "there is a male skateboarder doing a trick in the air with his skateboard in front of him and a crowd of people in the background",
+    "there is a young man riding a skateboard in the middle of the street with another young man on the other side of the road in the background"
+  ],
+  "stage2_blip_descriptions": [
+    "there is a man that is doing a trick on a snowboard in the air in front of a crowd of people with flags and trees in the background",
+    "there are a lot of skateboarders that are doing tricks on the railings at the skateboarder's park in the day time of the day",
+    "there is a male skateboarder doing a trick in the air in front of a large building with a clock tower on the side of the building"
+  ],
+  "target_in_stage1_top3": false,
+  "target_in_stage2_top3": false
+}
