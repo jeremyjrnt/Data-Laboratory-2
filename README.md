@@ -12,7 +12,6 @@ A comprehensive research project investigating how Large Language Models (LLMs) 
 - [Key Findings](#key-findings)
 - [Installation & Setup](#installation--setup)
 - [Usage](#usage)
-- [Visualization](#visualization)
 - [Performance Analysis](#performance-analysis)
 - [Dependencies](#dependencies)
 
@@ -1178,6 +1177,7 @@ For questions, issues, or collaboration:
 - Issues: [GitHub Issues](https://github.com/jeremyjrnt/Data-Laboratory-2/issues)
 
 ---
+
 
 
 
