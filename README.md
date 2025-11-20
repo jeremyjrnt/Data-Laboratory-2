@@ -591,7 +591,7 @@ The project implements multiple retrieval strategies, each in its own module:
 - Performs FAISS similarity search
 - Returns ranked image results
 
-**2. Pseudo-Relevance Feedback (`retriever_prf.py`)**
+**2. Relevance Feedback (`retriever_prf.py`)**
 - Retrieves initial candidates using CLIP
 - Extracts captions from top-k results
 - Uses LLM (via Ollama) to re-rank based on semantic relevance
@@ -747,7 +747,7 @@ for rank, (idx, dist) in enumerate(zip(indices[0], distances[0]), 1):
     print(f"{rank}. Image ID: {idx}, Distance: {dist:.4f}")
 ```
 
-#### Pseudo-Relevance Feedback (PRF)
+#### Relevance Feedback (RF)
 
 ```python
 from src.retrieval.retriever_prf import LLMPseudoRelevanceFeedback
@@ -1220,16 +1220,6 @@ cd visualizations/prf
 python create_plots.py  # Creates recall curves, MRR comparisons, etc.
 ```
 
-## Future Work
-
-Potential extensions of this research:
-
-1. **Cross-modal attention mechanisms**: Learn adaptive weighting between modalities
-2. **Fine-tuned VLMs**: Specialize BLIP for retrieval-specific captions
-3. **Efficient IVF routing**: Improve cluster-based scaling methods
-4. **Multi-stage pipelines**: Combine early and late integration strategically
-5. **Interactive retrieval**: User feedback loops with LLM refinement
-6. **Zero-shot generalization**: Test on unseen datasets and domains
 
 ## Acknowledgments
 
@@ -1248,4 +1238,4 @@ For questions, issues, or collaboration:
 
 ---
 
-**Last Updated**: November 20, 2025
+
