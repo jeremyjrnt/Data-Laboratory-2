@@ -1079,20 +1079,6 @@ Detailed performance results are organized by method:
 - Voting strategies (majority, weighted)
 - Failure case analysis
 
-### Extracting Results
-
-```python
-# Load performance metrics
-import json
-
-with open('report/performance_prf/performances_extracted.json') as f:
-    prf_results = json.load(f)
-
-# Analyze specific method
-method = 'gemma:27b_k5'
-print(f"R@10: {prf_results[method]['R@10']}")
-print(f"MRR: {prf_results[method]['MRR']}")
-```
 
 ## Dependencies
 
@@ -1237,5 +1223,6 @@ For questions, issues, or collaboration:
 - Issues: [GitHub Issues](https://github.com/jeremyjrnt/Data-Laboratory-2/issues)
 
 ---
+
 
 
