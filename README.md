@@ -25,14 +25,6 @@ In text-to-image retrieval with a shared image–text embedding space (as in CLI
 
 We design and evaluate **four methods** integrating LLMs/VLMs at different stages of the retrieval pipeline:
 
-**Late-Stage Methods** (Post-Retrieval):
-1. **LLM as Relevance Feedback Provider**: Uses LLM to judge relevance of top-k results, then applies Rocchio algorithm to update query embedding
-2. **LLM as Query Reformulator**: LLM reformulates queries based on top-k results in structured (scene/emotion/action) or unstructured paradigms
-
-**Early-Stage Methods** (Index-Time Integration):
-3. **BLIP-Based Multiple Retrieval Systems**: Combines 4 retrieval channels (Image embeddings, BLIP captions, averaged embeddings, BM25) via fusion methods (CombSUM, RRF, Borda)
-4. **Inverted File Index with BLIP-Based Cluster Corpus**: Uses FPS sampling + LLM aggregation to create semantic cluster descriptions for IVF routing
-
 ## Late-Stage Methods (Post-Retrieval)
 
 1. **LLM as Relevance Feedback Provider**  
@@ -1193,6 +1185,7 @@ For questions, issues, or collaboration:
 - Issues: [GitHub Issues](https://github.com/jeremyjrnt/Data-Laboratory-2/issues)
 
 ---
+
 
 
 
