@@ -984,51 +984,6 @@ neighbors = inspector.find_neighbors(test_vector, k=5)
 inspector.display_neighbors(neighbors)
 ```
 
-## Visualization
-
-### Generate Dataset Sample Grids
-
-Visualize random samples from each dataset with their captions:
-
-```bash
-cd visualizations
-python create_sample_grids.py
-```
-
-This generates 3x3 grids for each dataset showing:
-- Random image samples
-- Ground-truth captions
-- Visual diversity of the dataset
-
-Output files:
-- `COCO_sample_grid.png`
-- `Flickr_sample_grid.png`
-- `VizWiz_sample_grid.png`
-
-### Performance Visualizations
-
-Each experiment folder in `report/` contains visualization scripts:
-
-```bash
-# PRF performance plots
-cd report/performance_prf
-python results.py
-
-# Double embeddings analysis
-cd report/performance_double_embeddings
-python results.py
-
-# IVF method analysis
-cd report/performance_ivf_llm_desc
-python results.py
-```
-
-Generated visualizations include:
-- Recall@K curves
-- MRR comparisons
-- Per-query performance distributions
-- Method comparison heatmaps
-- Rank improvement/degradation analysis
 
 ## Performance Analysis
 
@@ -1223,6 +1178,7 @@ For questions, issues, or collaboration:
 - Issues: [GitHub Issues](https://github.com/jeremyjrnt/Data-Laboratory-2/issues)
 
 ---
+
 
 
 
