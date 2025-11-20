@@ -96,13 +96,23 @@ class TextToImageRetriever:
             return False
     
     def encode_text(self, text: str) -> np.ndarray:
-        """Encode text using CLIP model"""
+        """Encode text using CLIP model
+        
+        Converts text into a normalized embedding vector using CLIP's text encoder.
+        The embedding is suitable for similarity search in the FAISS index.
+        
+        Args:
+            text: Input text to encode
+            
+        Returns:
+            Normalized embedding vector (numpy array)
+        """
         try:
-            # Process text
+            # Process text into model input format (tokenization, padding)
             inputs = self.processor(text=[text], return_tensors="pt", padding=True, truncation=True)
             inputs = {k: v.to(self.device) for k, v in inputs.items()}
             
-            # Generate text embedding
+            # Generate text embedding using CLIP's text encoder
             with torch.no_grad():
                 if self.device.type == "cuda":
                     # Use half precision for GPU
@@ -127,6 +137,12 @@ class TextToImageRetriever:
         """
         Search for images similar to the text query
         
+        Performs semantic similarity search by:
+        1. Encoding the text query into CLIP embedding space
+        2. Searching FAISS index for nearest neighbor image embeddings
+        3. Filtering results by similarity threshold
+        4. Returning ranked results with metadata
+        
         Args:
             text_query: Text description to search for
             k: Number of results to return
@@ -134,7 +150,7 @@ class TextToImageRetriever:
             verbose: Whether to print detailed results
         
         Returns:
-            List of (metadata_dict, similarity_score) tuples
+            List of (metadata_dict, similarity_score) tuples, ordered by similarity
         """
         if not self.current_index or not self.current_metadata:
             print("❌ No database loaded")

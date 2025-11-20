@@ -412,6 +412,16 @@ Be selective - only mark images as relevant if they share significant semantic c
         """
         Apply Rocchio algorithm for pseudo-relevance feedback.
         
+        The Rocchio algorithm updates the query vector by moving it towards
+        relevant documents and away from non-relevant ones:
+        
+        Q_new = α·Q_original + β·(1/|R|)·Σ(relevant) - γ·(1/|N|)·Σ(non-relevant)
+        
+        where:
+        - α controls weight of original query (typically 1.0)
+        - β controls weight of relevant documents (typically 0.75)
+        - γ controls weight of non-relevant documents (typically 0.0 for PRF)
+        
         Args:
             query_embedding: Original query embedding
             relevant_results: List of results marked as relevant by LLM

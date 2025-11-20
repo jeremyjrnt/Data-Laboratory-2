@@ -287,14 +287,28 @@ class GroundTruthLLMVotingRetriever:
             return "Based on similarity: [1, 2, 3, 4, 5]"
     
     def parse_llm_ranking(self, llm_response: str, num_images: int) -> List[int]:
-        """Parse LLM ranking response with multiple strategies and detailed logging."""
-        logger.info(f"� PARSING LLM RANKING - Detailed Analysis:")
-        logger.info(f"�📝 Full LLM Response ({len(llm_response)} chars):")
+        """Parse LLM ranking response with multiple strategies and detailed logging.
+        
+        LLMs can return rankings in various formats (arrays, text, numbered lists).
+        This function tries multiple parsing strategies to extract the ranking:
+        1. Array patterns: [1,2,3], [1, 2, 3], ranking: [...]
+        2. Numbered lists: "1. Image X", "First: Image Y"
+        3. Sequential numbers: extracting all digits in order
+        
+        Args:
+            llm_response: Raw text response from LLM
+            num_images: Expected number of images to rank
+            
+        Returns:
+            List of image indices (1-indexed) in ranked order
+        """
+        logger.info(f"📝 PARSING LLM RANKING - Detailed Analysis:")
+        logger.info(f"📝 Full LLM Response ({len(llm_response)} chars):")
         logger.info(f"'{llm_response}'")
         logger.info(f"🔢 Expected: {num_images} numbers from 1 to {num_images}")
         logger.info("-" * 50)
         
-        # Strategy 1: Enhanced array patterns
+        # Strategy 1: Enhanced array patterns (most reliable)
         array_patterns = [
             r'\[(\d+(?:,\s*\d+)*)\]',                      # [1, 2, 3]
             r'ranking:\s*\[(\d+(?:,\s*\d+)*)\]',           # Ranking: [1, 2, 3]  

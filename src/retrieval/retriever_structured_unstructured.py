@@ -737,12 +737,24 @@ Return ONLY the improved reformulated query as one clear, natural sentence. Do n
     
     def combined_two_stage_retrieve(self, query_text: str, target_filename: Optional[str] = None) -> Dict:
         """
-        Combined two-stage retrieval: first unstructured, then structured.
-        BLIP captions are generated once and reused for both methods.
+        Combined two-stage retrieval comparing unstructured vs structured approaches.
+        
+        This method runs both query reformulation paradigms in parallel:
+        
+        1. Unstructured: LLM reformulates query based on raw BLIP captions
+        2. Structured: LLM extracts semantic features (scene/emotion/action),
+           scores alignment with top-k results, then reformulates
+        
+        Both approaches follow the same workflow:
+        - Stage 1: Initial retrieval with original query (shared)
+        - Decision: LLM decides if reformulation would help
+        - Stage 2: Re-retrieval with reformulated query (if beneficial)
+        
+        BLIP captions are generated once and reused for efficiency.
         
         Args:
             query_text: Original textual query
-            target_filename: Filename of the target image to track its rank
+            target_filename: Optional filename to track its rank across stages
             
         Returns:
             Dictionary containing results from both methods

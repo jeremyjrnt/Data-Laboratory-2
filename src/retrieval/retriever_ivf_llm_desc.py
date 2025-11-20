@@ -131,7 +131,15 @@ class HybridIVFRetriever:
         print(f"✅ CLIP model loaded on {self.device}")
     
     def _build_bm25_index(self):
-        """Build BM25 index on cluster summaries"""
+        """Build BM25 index on cluster summaries
+        
+        Creates a BM25 index over LLM-generated cluster descriptions to enable
+        textual retrieval. This allows queries to be matched against semantic
+        cluster summaries rather than just embedding distances, providing a
+        hybrid retrieval approach combining vector search with text matching.
+        
+        The index is cached to disk to avoid rebuilding on every run.
+        """
         # Define cache path in data/COCO directory
         bm25_cache_path = self.data_dir / f"bm25_cache_{self.llm_name}_{self.bm25_variant}_k1_{self.bm25_k1}_b_{self.bm25_b}_delta_{self.bm25_delta}.pkl"
         
@@ -344,7 +352,16 @@ class HybridIVFRetriever:
         bm25_clusters: List[int],
         bm25_scores: List[float]
     ) -> List[int]:
-        """CombSum fusion: sum normalized scores"""
+        """CombSum fusion: sum normalized scores
+        
+        Combines embedding-based and BM25 rankings by:
+        1. Normalizing both score lists to [0,1] using Min-Max
+        2. Summing normalized scores for each cluster
+        3. Ranking clusters by combined score (higher is better)
+        
+        This ensures both methods contribute equally regardless of their
+        original score scales.
+        """
         # Normalize scores
         emb_scores_norm = self._normalize_scores(emb_scores)
         bm25_scores_norm = self._normalize_scores(bm25_scores)
@@ -397,7 +414,14 @@ class HybridIVFRetriever:
         bm25_scores: List[float],
         k: int = 60
     ) -> List[int]:
-        """Reciprocal Rank Fusion (RRF)"""
+        """Reciprocal Rank Fusion (RRF)
+        
+        Rank-based fusion method that combines rankings without using raw scores.
+        For each cluster: RRF_score = 1/(k + rank_embedding) + 1/(k + rank_bm25)
+        
+        RRF is more robust than score-based methods as it's insensitive to
+        score scale differences and outliers.
+        """
         combined_scores = {}
         
         # Embedding ranking

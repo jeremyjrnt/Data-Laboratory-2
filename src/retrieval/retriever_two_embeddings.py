@@ -362,14 +362,25 @@ class TwoEmbeddingsRetriever:
         """
         Fuse multiple result lists using CombSUM with Min-Max normalization
         
+        CombSUM aggregates scores by:
+        1. Normalizing each system's scores to [0,1] using Min-Max normalization
+        2. Summing normalized scores for each image across all systems
+        3. Ranking images by combined score (higher is better)
+        
+        This gives equal weight to each retrieval system regardless of their
+        original score ranges, ensuring fair contribution from all sources.
+        
         Args:
-            results_list: List of result lists to fuse
+            results_list: List of result lists from different retrieval systems
             return_all: If True, return all results instead of top k
+            
+        Returns:
+            Fused and ranked list of results
         """
         if not return_all:
             print("🔄 Applying CombSUM fusion...")
         
-        # Normalize each result list
+        # Normalize each result list to [0, 1] range
         normalized_results = []
         for results in results_list:
             normalized_results.append(self.normalize_scores_minmax(results))
@@ -404,9 +415,18 @@ class TwoEmbeddingsRetriever:
         """
         Fuse multiple result lists using Reciprocal Rank Fusion (RRF)
         
+        RRF is a rank-based fusion method that combines rankings without using scores.
+        For each image: RRF_score = Σ 1/(k + rank_i) across all systems
+        where rank_i is the rank in system i, and k is a smoothing parameter.
+        
+        Benefits:
+        - Score-independent: works when scores aren't comparable between systems
+        - Robust: less sensitive to outliers than score-based methods
+        - Well-established in information retrieval research
+        
         Args:
-            results_list: List of result lists to fuse
-            k_rrf: k parameter for RRF
+            results_list: List of result lists from different retrieval systems
+            k_rrf: Smoothing parameter k (typical value: 60)
             return_all: If True, return all results instead of top k
         """
         if not return_all:
