@@ -10,6 +10,8 @@ import faiss
 from pathlib import Path
 import random
 from typing import Dict, List, Tuple, Optional
+from config.config import Config
+from config.config import Config
 
 class VectorDBInspector:
     def __init__(self, vectordb_path: str = None):
@@ -20,10 +22,8 @@ class VectorDBInspector:
             vectordb_path: Path to the VectorDBs directory
         """
         if vectordb_path is None:
-            # Default to the project's VectorDBs directory
-            current_file = Path(__file__).resolve()
-            project_root = current_file.parent.parent.parent
-            vectordb_path = project_root / "VectorDBs"
+            # Default to the project's VectorDBs directory from Config
+            vectordb_path = Config.VECTORDB_DIR
         
         self.vectordb_path = Path(vectordb_path).resolve()
         self.current_db = None

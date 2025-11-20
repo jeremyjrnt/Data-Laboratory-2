@@ -21,6 +21,7 @@ import time
 sys.path.append(str(Path(__file__).parent.parent))
 
 from retrieval.retriever_prf import ImageRetriever
+from config.config import Config
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -55,7 +56,7 @@ class PerformancePRFEvaluator:
         ]
 
         # Setup directories
-        self.output_dir = Path(f"report/performance_prf/{dataset_name}")
+        self.output_dir = Config.REPORT_DIR / "performance_prf" / dataset_name
         self.output_dir.mkdir(parents=True, exist_ok=True)
         
         # Single consolidated results file for this dataset
@@ -71,7 +72,7 @@ class PerformancePRFEvaluator:
 
     def _load_selected_images(self) -> List[Dict]:
         """Load the selected_1000.json file for the dataset."""
-        selected_path = Path(f"data/{self.dataset_name}/selected_1000.json")
+        selected_path = Config.get_selected_images_path(self.dataset_name)
 
         if not selected_path.exists():
             raise FileNotFoundError(f"Selected images file not found: {selected_path}")
@@ -655,7 +656,7 @@ def evaluate_all_datasets(k: int = 10):
     }
     
     # Save to report directory
-    summary_dir = Path("report/performance_prf")
+    summary_dir = Config.REPORT_DIR / "performance_prf"
     summary_dir.mkdir(parents=True, exist_ok=True)
     summary_file = summary_dir / f"multi_dataset_evaluation_summary_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
     

@@ -21,6 +21,7 @@ import torch
 import faiss
 from PIL import Image
 from transformers import CLIPModel, CLIPProcessor, BlipProcessor, BlipForConditionalGeneration
+from config.config import Config
 
 # ------------------------------- Logging -----------------------------------
 logging.basicConfig(level=logging.INFO, format='%(levelname)s:%(name)s:%(message)s')
@@ -65,33 +66,33 @@ class CombinedImageRetriever:
     def __init__(
         self,
         vectordb_name: str,
-        vectordb_dir: str = "VectorDBs",
-        llm_model: str = "gemma3:4b",
-        llm_temp: float = 0.1,
-        llm_top_p: float = 0.9,
-        llm_timeout: int = 200
+        vectordb_dir: str = None,
+        llm_model: str = None,
+        llm_temp: float = None,
+        llm_top_p: float = None,
+        llm_timeout: int = None
     ):
         self.vectordb_name = vectordb_name
-        self.vectordb_dir = Path(vectordb_dir)
+        self.vectordb_dir = Path(vectordb_dir) if vectordb_dir else Config.VECTORDB_DIR
         self.dataset_name = vectordb_name.replace("_VectorDB", "")
-        self.llm_model = llm_model
-        self.llm_temp = llm_temp
-        self.llm_top_p = llm_top_p
-        self.llm_timeout = llm_timeout
+        self.llm_model = llm_model or Config.OLLAMA_MODEL_DEFAULT
+        self.llm_temp = llm_temp if llm_temp is not None else Config.LLM_TEMPERATURE
+        self.llm_top_p = llm_top_p if llm_top_p is not None else Config.LLM_TOP_P
+        self.llm_timeout = llm_timeout if llm_timeout is not None else Config.LLM_TIMEOUT
         
         self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
         
         # Load CLIP model
         logger.info("🔄 Loading CLIP model...")
-        self.clip_model = CLIPModel.from_pretrained("openai/clip-vit-large-patch14").to(self.device)
+        self.clip_model = CLIPModel.from_pretrained(Config.HF_MODEL_CLIP_LARGE).to(self.device)
         self.clip_model.eval()
-        self.clip_processor = CLIPProcessor.from_pretrained("openai/clip-vit-large-patch14")
+        self.clip_processor = CLIPProcessor.from_pretrained(Config.HF_MODEL_CLIP_LARGE)
         logger.info(f"✅ CLIP ready on {self.device}")
         
         # Load BLIP model for image captioning
         logger.info("🔄 Loading BLIP model...")
-        self.blip_processor = BlipProcessor.from_pretrained("Salesforce/blip-image-captioning-large")
-        self.blip_model = BlipForConditionalGeneration.from_pretrained("Salesforce/blip-image-captioning-large").to(self.device)
+        self.blip_processor = BlipProcessor.from_pretrained(Config.HF_MODEL_BLIP)
+        self.blip_model = BlipForConditionalGeneration.from_pretrained(Config.HF_MODEL_BLIP).to(self.device)
         self.blip_model.eval()
         logger.info(f"✅ BLIP ready on {self.device}")
         
@@ -553,6 +554,9 @@ Return only the score in the exact format above."""
         images_text = "\n".join(images_features_context)
         
         prompt = f"""You are an expert in image retrieval quality assessment.
+
+ORIGINAL QUERY:
+"{original_query}"
 
 ORIGINAL QUERY FEATURES:
 - Scene: {query_features['scene']}
@@ -1089,15 +1093,15 @@ Return ONLY the improved reformulated query as one clear, natural sentence. Do n
 def main():
     parser = argparse.ArgumentParser(description="Combined Structured + Unstructured Image Retrieval")
     parser.add_argument('--vectordb', required=True, help='VectorDB name, e.g., COCO_VectorDB')
-    parser.add_argument('--vectordb-dir', default='VectorDBs', help='Directory with .index and *_metadata.json')
+    parser.add_argument('--vectordb-dir', default=None, help='Directory with .index and *_metadata.json')
     parser.add_argument('--prompt', type=str, help='Text prompt for image retrieval')
     parser.add_argument('--filename', type=str, help='Use true caption of this filename as query')
     parser.add_argument('--output', type=str, help='Optional: Save results to JSON file')
     # LLM parameters
-    parser.add_argument('--llm', default='gemma3:4b', help='LLM model for reformulation')
-    parser.add_argument('--llm-temp', type=float, default=0.1, help='LLM temperature')
-    parser.add_argument('--llm-top-p', type=float, default=0.9, help='LLM top_p')
-    parser.add_argument('--llm-timeout', type=int, default=200, help='LLM timeout in seconds')
+    parser.add_argument('--llm', default=None, help='LLM model for reformulation (default: from Config)')
+    parser.add_argument('--llm-temp', type=float, default=None, help='LLM temperature (default: from Config)')
+    parser.add_argument('--llm-top-p', type=float, default=None, help='LLM top_p (default: from Config)')
+    parser.add_argument('--llm-timeout', type=int, default=None, help='LLM timeout in seconds (default: from Config)')
     
     args = parser.parse_args()
     

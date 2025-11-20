@@ -20,6 +20,7 @@ import torch
 from transformers import CLIPModel, CLIPProcessor
 from tqdm import tqdm
 from rank_bm25 import BM25Okapi, BM25Plus, BM25L
+from config.config import Config
 
 
 class HybridIVFRetriever:
@@ -58,8 +59,8 @@ class HybridIVFRetriever:
         self.device = device or ("cuda" if torch.cuda.is_available() else "cpu")
         
         # Paths
-        self.vectordb_dir = Path("VectorDBs")
-        self.data_dir = Path("data") / dataset
+        self.vectordb_dir = Config.VECTORDB_DIR
+        self.data_dir = Config.get_dataset_dir(dataset)
         
         # Files
         self.index_path = self.vectordb_dir / f"{dataset}_IVF_KMeans.index"
@@ -124,8 +125,8 @@ class HybridIVFRetriever:
     def _load_clip_model(self):
         """Load CLIP model for text encoding"""
         print(f"\n🤖 Loading CLIP model...")
-        self.clip_model = CLIPModel.from_pretrained('openai/clip-vit-large-patch14').to(self.device)
-        self.clip_processor = CLIPProcessor.from_pretrained('openai/clip-vit-large-patch14')
+        self.clip_model = CLIPModel.from_pretrained(Config.HF_MODEL_CLIP_LARGE).to(self.device)
+        self.clip_processor = CLIPProcessor.from_pretrained(Config.HF_MODEL_CLIP_LARGE)
         self.clip_model.eval()
         print(f"✅ CLIP model loaded on {self.device}")
     

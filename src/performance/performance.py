@@ -26,6 +26,7 @@ import warnings
 from datetime import datetime
 import statistics
 from collections import defaultdict, Counter
+from config.config import Config
 
 warnings.filterwarnings("ignore")
 
@@ -410,7 +411,7 @@ class PerformanceEvaluator:
     Comprehensive performance evaluator for CLIP-based image retrieval system.
     """
     
-    def __init__(self, vectordb_name: str, vectordb_dir: str = "VectorDBs", output_dir: str = None):
+    def __init__(self, vectordb_name: str, vectordb_dir: str = None, output_dir: str = None):
         self.vectordb_name = vectordb_name
         self.vectordb_dir = Path(vectordb_dir).resolve()
         self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")

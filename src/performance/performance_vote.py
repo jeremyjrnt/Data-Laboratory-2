@@ -20,6 +20,7 @@ import pickle
 sys.path.append(str(Path(__file__).parent.parent))
 
 from retrieval.retriever_vote import GroundTruthLLMVotingRetriever
+from config.config import Config
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -40,13 +41,13 @@ class OptimizedPerformanceVoteEvaluator:
         
         # Target ranks for evaluation (ground truth not in position 1)
         self.target_ranks = [2, 3, 4, 5]
-        self.cases_per_rank = 1000 # Fixed number per rank - 1000
+        self.cases_per_rank = Config.EVALUATION_CASES_PER_RANK  # From Config
         
         # Setup directories
-        self.output_dir = Path(f"report/performance_vote/{dataset_name}")
+        self.output_dir = Config.REPORT_DIR / "performance_vote" / dataset_name
         self.output_dir.mkdir(parents=True, exist_ok=True)
         
-        self.temp_dir = Path(f"report/performance_vote/{dataset_name}/temp")
+        self.temp_dir = Config.REPORT_DIR / "performance_vote" / dataset_name / "temp"
         self.temp_dir.mkdir(parents=True, exist_ok=True)
         
         # Load and select test cases
@@ -60,7 +61,7 @@ class OptimizedPerformanceVoteEvaluator:
     
     def _load_performance_data(self) -> List[Dict]:
         """Load performance.json data for the dataset."""
-        performance_path = Path(f"report/performance_raw/{self.dataset_name}/performance.json")
+        performance_path = Config.REPORT_DIR / "performance_raw" / self.dataset_name / "performance.json"
         
         if not performance_path.exists():
             raise FileNotFoundError(f"Performance data not found: {performance_path}")

@@ -13,6 +13,7 @@ import torch
 sys.path.append(str(Path(__file__).parent.parent))
 
 from vector_store.indexer import FAISSVectorIndexer
+from config.config import Config
 
 def check_gpu_requirements():
     """Check GPU availability and requirements"""
@@ -172,8 +173,8 @@ def main():
     parser.add_argument('--index-name', required=True, help='Name for the FAISS index')
     parser.add_argument('--images-folder', required=True, help='Path to images folder')
     parser.add_argument('--metadata-json', required=True, help='Path to metadata JSON')
-    parser.add_argument('--save-dir', default='../../VectorDBs', help='Directory to save index')
-    parser.add_argument('--model-name', default='openai/clip-vit-large-patch14', help='CLIP model name')
+    parser.add_argument('--save-dir', default=None, help='Directory to save index (default: from Config)')
+    parser.add_argument('--model-name', default=None, help='CLIP model name (default: from Config)')
     parser.add_argument('--batch-size', type=int, default=32, help='Batch size (auto-adjusted for GPU)')
     
     args = parser.parse_args()
@@ -191,8 +192,9 @@ def main():
     success = create_gpu_optimized_index(args)
     
     if success:
+        save_dir = args.save_dir or str(Config.VECTORDB_DIR)
         print("\n🎉 Index creation completed successfully!")
-        print(f"📁 Index saved to: {Path(args.save_dir).absolute()}")
+        print(f"📁 Index saved to: {Path(save_dir).absolute()}")
     else:
         print("\n💥 Index creation failed!")
         return 1

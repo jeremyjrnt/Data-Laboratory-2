@@ -21,6 +21,7 @@ import time
 sys.path.append(str(Path(__file__).parent.parent))
 
 from retrieval.retriever_structured_unstructured import CombinedImageRetriever
+from config.config import Config
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -50,7 +51,7 @@ class PerformanceStructuredUnstructuredEvaluator:
         ]
 
         # Setup directories
-        self.output_dir = Path(f"report/performance_structured_unstructured/{dataset_name}")
+        self.output_dir = Config.REPORT_DIR / "performance_structured_unstructured" / dataset_name
         self.output_dir.mkdir(parents=True, exist_ok=True)
 
         # Single consolidated results file for this dataset
@@ -71,7 +72,7 @@ class PerformanceStructuredUnstructuredEvaluator:
 
     def _load_selected_images(self) -> List[Dict]:
         """Load the selected_1000.json file for the dataset."""
-        selected_path = Path(f"data/{self.dataset_name}/selected_1000.json")
+        selected_path = Config.get_selected_images_path(self.dataset_name)
 
         if not selected_path.exists():
             raise FileNotFoundError(f"Selected images file not found: {selected_path}")
@@ -107,18 +108,18 @@ class PerformanceStructuredUnstructuredEvaluator:
     def evaluate_single_configuration(
         self,
         llm_model: str,
-        llm_temp: float = 0.1,
-        llm_top_p: float = 0.9,
-        llm_timeout: int = 200
+        llm_temp: float = None,
+        llm_top_p: float = None,
+        llm_timeout: int = None
     ) -> Dict:
         """
         Evaluate retrieval performance for a single LLM configuration.
 
         Args:
             llm_model: LLM model name
-            llm_temp: LLM temperature
-            llm_top_p: LLM top_p parameter
-            llm_timeout: LLM timeout in seconds
+            llm_temp: LLM temperature (default: from Config)
+            llm_top_p: LLM top_p parameter (default: from Config)
+            llm_timeout: LLM timeout in seconds (default: from Config)
 
         Returns:
             Dictionary containing evaluation results
@@ -126,6 +127,11 @@ class PerformanceStructuredUnstructuredEvaluator:
         logger.info("\n" + "="*80)
         logger.info(f"🤖 Evaluating LLM: {llm_model}")
         logger.info("="*80)
+
+        # Use Config defaults if not provided
+        llm_temp = llm_temp if llm_temp is not None else Config.LLM_TEMPERATURE
+        llm_top_p = llm_top_p if llm_top_p is not None else Config.LLM_TOP_P
+        llm_timeout = llm_timeout if llm_timeout is not None else Config.LLM_TIMEOUT
 
         # Initialize retriever
         retriever = CombinedImageRetriever(

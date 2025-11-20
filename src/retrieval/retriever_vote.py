@@ -27,27 +27,28 @@ from transformers import (
     CLIPModel, CLIPProcessor,
     BlipProcessor, BlipForConditionalGeneration
 )
+from config.config import Config
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 class GroundTruthLLMVotingRetriever:
-    def __init__(self, vectordb_name: str, vectordb_dir: str = "VectorDBs", llm_model: str = "gemma3:27b"):
+    def __init__(self, vectordb_name: str, vectordb_dir: str = None, llm_model: str = None):
         self.vectordb_name = vectordb_name
-        self.vectordb_dir = Path(vectordb_dir)
-        self.llm_model = llm_model
+        self.vectordb_dir = Path(vectordb_dir) if vectordb_dir else Config.VECTORDB_DIR
+        self.llm_model = llm_model or Config.OLLAMA_MODEL_LARGE
         self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
         
         # Load models
         logger.info("🔄 Loading CLIP model...")
-        self.clip_model = CLIPModel.from_pretrained("openai/clip-vit-large-patch14").to(self.device)
-        self.clip_processor = CLIPProcessor.from_pretrained("openai/clip-vit-large-patch14")
+        self.clip_model = CLIPModel.from_pretrained(Config.HF_MODEL_CLIP_LARGE).to(self.device)
+        self.clip_processor = CLIPProcessor.from_pretrained(Config.HF_MODEL_CLIP_LARGE)
         logger.info("✅ CLIP model loaded")
         
         logger.info("🔄 Loading BLIP model...")
-        self.blip_processor = BlipProcessor.from_pretrained("Salesforce/blip-image-captioning-large")
-        self.blip_model = BlipForConditionalGeneration.from_pretrained("Salesforce/blip-image-captioning-large").to(self.device)
+        self.blip_processor = BlipProcessor.from_pretrained(Config.HF_MODEL_BLIP)
+        self.blip_model = BlipForConditionalGeneration.from_pretrained(Config.HF_MODEL_BLIP).to(self.device)
         logger.info("✅ BLIP model loaded")
         
         # Load VectorDB
@@ -222,7 +223,7 @@ class GroundTruthLLMVotingRetriever:
                 
                 cmd = [
                     "curl", "-s", "-X", "POST", 
-                    "http://100.64.0.9:11434/api/generate",
+                    Config.get_ollama_url('a6000'),
                     "-H", "Content-Type: application/json",
                     "-d", json.dumps(request_data)
                 ]
@@ -267,7 +268,7 @@ class GroundTruthLLMVotingRetriever:
             
             cmd = [
                 "curl", "-s", "-X", "POST", 
-                "http://100.64.0.9:11434/api/generate",
+                Config.get_ollama_url('a6000'),
                 "-H", "Content-Type: application/json",
                 "-d", json.dumps(request_data)
             ]
@@ -801,12 +802,12 @@ Ranking:"""
 def main():
     parser = argparse.ArgumentParser(description="Ground Truth LLM Voting Image Retrieval")
     parser.add_argument('--vectordb', required=True, help='VectorDB name (e.g., Flickr_VectorDB)')
-    parser.add_argument('--llm', default='gemma3:27b', help='LLM model')
+    parser.add_argument('--llm', default=None, help='LLM model (default: from Config)')
     parser.add_argument('--caption', type=str, help='Specific caption to test (optional)')
     parser.add_argument('--filename', type=str, help='Specific filename to get caption for (optional)')
     parser.add_argument('--random', action='store_true', help='Use random ground truth caption')
     parser.add_argument('--k', type=int, default=5, help='Number of results')
-    parser.add_argument('--vectordb-dir', default='VectorDBs', help='VectorDB directory')
+    parser.add_argument('--vectordb-dir', default=None, help='VectorDB directory (default: from Config)')
     
     args = parser.parse_args()
     

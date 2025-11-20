@@ -17,24 +17,24 @@ import matplotlib.image as mpimg
 from datetime import datetime
 
 class TextToImageRetriever:
-    def __init__(self, vectordb_path: str = "../../VectorDBs", model_name: str = "openai/clip-vit-large-patch14"):
+    def __init__(self, vectordb_path: str = None, model_name: str = None):
         """
         Initialize the Text-to-Image Retriever
         
         Args:
-            vectordb_path: Path to the VectorDBs directory
-            model_name: CLIP model name (must match the one used for indexing)
+            vectordb_path: Path to the VectorDBs directory (default: from Config)
+            model_name: CLIP model name (default: from Config)
         """
-        self.vectordb_path = Path(vectordb_path).resolve()
-        self.model_name = model_name
+        self.vectordb_path = Path(vectordb_path).resolve() if vectordb_path else Config.VECTORDB_DIR
+        self.model_name = model_name or Config.HF_MODEL_CLIP_LARGE
         
         # Initialize CLIP model and processor
-        print(f"🔄 Loading CLIP model: {model_name}")
+        print(f"🔄 Loading CLIP model: {self.model_name}")
         self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
         print(f"🎯 Using device: {self.device}")
         
-        self.model = CLIPModel.from_pretrained(model_name).to(self.device)
-        self.processor = CLIPProcessor.from_pretrained(model_name)
+        self.model = CLIPModel.from_pretrained(self.model_name).to(self.device)
+        self.processor = CLIPProcessor.from_pretrained(self.model_name)
         
         # Set to evaluation mode and enable half precision if using GPU
         self.model.eval()

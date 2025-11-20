@@ -18,6 +18,7 @@ import numpy as np
 import faiss
 from PIL import Image
 from transformers import CLIPModel, CLIPProcessor, BlipProcessor, BlipForConditionalGeneration
+from config.config import Config
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -33,36 +34,37 @@ class ImageRetriever:
     def __init__(
         self,
         vectordb_name: str,
-        vectordb_dir: str = "VectorDBs",
-        clip_model: str = "openai/clip-vit-large-patch14",
-        llm_model: str = "gemma3:4b",
-        llm_url: str = "http://localhost:11434/api/generate",
-        alpha: float = 1.0,
-        beta: float = 0.75,
-        gamma: float = 0.0
+        vectordb_dir: str = None,
+        clip_model: str = None,
+        llm_model: str = None,
+        llm_url: str = None,
+        alpha: float = None,
+        beta: float = None,
+        gamma: float = None
     ):
         """
         Initialize the retriever.
 
         Args:
             vectordb_name: Name of the VectorDB (e.g., 'COCO_VectorDB')
-            vectordb_dir: Directory containing the .index and _metadata.json files
-            clip_model: CLIP model to use for encoding
-            llm_model: Ollama LLM model for relevance evaluation
-            alpha: Rocchio alpha parameter (weight for original query, default: 1.0)
-            beta: Rocchio beta parameter (weight for relevant documents, default: 0.75)
-            gamma: Rocchio gamma parameter (weight for non-relevant documents, default: 0.0)
+            vectordb_dir: Directory containing the .index and _metadata.json files (default: from Config)
+            clip_model: CLIP model to use for encoding (default: from Config)
+            llm_model: Ollama LLM model for relevance evaluation (default: from Config)
+            llm_url: Ollama API URL (default: from Config)
+            alpha: Rocchio alpha parameter (default: from Config)
+            beta: Rocchio beta parameter (default: from Config)
+            gamma: Rocchio gamma parameter (default: from Config)
         """
         self.vectordb_name = vectordb_name
-        self.vectordb_dir = Path(vectordb_dir)
+        self.vectordb_dir = Path(vectordb_dir) if vectordb_dir else Config.VECTORDB_DIR
         self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-        self.llm_model = llm_model
-        self.llm_url = llm_url
+        self.llm_model = llm_model or Config.OLLAMA_MODEL_DEFAULT
+        self.llm_url = llm_url or Config.get_ollama_url('local')
 
         # Rocchio parameters
-        self.alpha = alpha
-        self.beta = beta
-        self.gamma = gamma
+        self.alpha = alpha if alpha is not None else Config.ROCCHIO_ALPHA
+        self.beta = beta if beta is not None else Config.ROCCHIO_BETA
+        self.gamma = gamma if gamma is not None else Config.ROCCHIO_GAMMA
 
         logger.info("=" * 60)
         logger.info("🔄 Initializing Image Retriever")
@@ -72,15 +74,16 @@ class ImageRetriever:
         logger.info(f"   🌐 LLM URL: {llm_url}")
         logger.info(f"   ⚙️  Rocchio params: α={alpha}, β={beta}, γ={gamma}")
         logger.info("=" * 60)        # Load CLIP model
-        logger.info(f"🔄 Loading CLIP model: {clip_model}")
-        self.clip_model = CLIPModel.from_pretrained(clip_model).to(self.device)
-        self.clip_processor = CLIPProcessor.from_pretrained(clip_model)
+        clip_model_name = clip_model or Config.HF_MODEL_CLIP_LARGE
+        logger.info(f"🔄 Loading CLIP model: {clip_model_name}")
+        self.clip_model = CLIPModel.from_pretrained(clip_model_name).to(self.device)
+        self.clip_processor = CLIPProcessor.from_pretrained(clip_model_name)
         logger.info("✅ CLIP model loaded")
         
         # Load BLIP model for image captioning
         logger.info("🔄 Loading BLIP model...")
-        self.blip_processor = BlipProcessor.from_pretrained("Salesforce/blip-image-captioning-large")
-        self.blip_model = BlipForConditionalGeneration.from_pretrained("Salesforce/blip-image-captioning-large").to(self.device)
+        self.blip_processor = BlipProcessor.from_pretrained(Config.HF_MODEL_BLIP)
+        self.blip_model = BlipForConditionalGeneration.from_pretrained(Config.HF_MODEL_BLIP).to(self.device)
         logger.info("✅ BLIP model loaded")
         
         # Load FAISS index and metadata
@@ -88,11 +91,11 @@ class ImageRetriever:
         
         # Set up images directory
         dataset_name = self.vectordb_name.replace("_VectorDB", "")
-        self.images_dir = Path("data") / dataset_name / "images"
+        self.images_dir = Config.get_images_dir(dataset_name)
         logger.info(f"📂 Images directory: {self.images_dir}")
         
         # Load dataset metadata for captions and baseline ranks
-        dataset_metadata_path = Path("data") / dataset_name / f"{dataset_name.lower()}_metadata.json"
+        dataset_metadata_path = Config.get_metadata_path(dataset_name)
         if dataset_metadata_path.exists():
             with open(dataset_metadata_path, 'r', encoding='utf-8') as f:
                 self.dataset_metadata = json.load(f)
@@ -913,13 +916,13 @@ def main():
     )
     parser.add_argument(
         '--vectordb-dir',
-        default='VectorDBs',
-        help='Directory containing VectorDB files (default: VectorDBs)'
+        default=None,
+        help='Directory containing VectorDB files (default: from Config)'
     )
     parser.add_argument(
         '--llm-model',
-        default='gemma3:4b',
-        help='Ollama LLM model for relevance evaluation (default: gemma3:4b)'
+        default=None,
+        help='Ollama LLM model for relevance evaluation (default: from Config)'
     )
     
     args = parser.parse_args()

@@ -23,6 +23,7 @@ from tqdm import tqdm
 # Import the hybrid retriever
 sys.path.append(str(Path(__file__).parent.parent))
 from retrieval.retriever_ivf_llm_desc import HybridIVFRetriever
+from config.config import Config
 
 
 class HybridIVFPerformanceEvaluator:
@@ -35,8 +36,8 @@ class HybridIVFPerformanceEvaluator:
         dataset: str = "COCO",
         llm_name: str = "gemma3_4b",
         fusion_method: str = "combsum",
-        bm25_k1: float = 1.2,
-        bm25_b: float = 0.75,
+        bm25_k1: float = None,
+        bm25_b: float = None,
         use_sample: bool = True,
         output_file: Optional[str] = None
     ):
@@ -54,8 +55,8 @@ class HybridIVFPerformanceEvaluator:
         self.use_sample = use_sample
         self.llm_name = llm_name
         self.fusion_method = fusion_method
-        self.data_dir = Path("data") / dataset
-        self.report_dir = Path("report/performance_ivf_llm_desc") / dataset
+        self.data_dir = Config.get_dataset_dir(dataset)
+        self.report_dir = Config.REPORT_DIR / "performance_ivf_llm_desc" / dataset
         self.output_file = output_file
         
         # Create report directory
@@ -99,8 +100,8 @@ class HybridIVFPerformanceEvaluator:
         print(f"✅ Loaded baseline data ({eval_type}) with {len(self.baseline_data.get('results', []))} results")
         
         # BM25 parameters
-        self.bm25_k1 = bm25_k1
-        self.bm25_b = bm25_b
+        self.bm25_k1 = bm25_k1 if bm25_k1 is not None else Config.BM25_K1
+        self.bm25_b = bm25_b if bm25_b is not None else Config.BM25_B
     
     def load_existing_results(self, output_path: Path) -> Dict:
         """
@@ -762,10 +763,10 @@ def main():
                        help="Use 10k sample for evaluation (default: True)")
     parser.add_argument("--use-full-dataset", action="store_true", default=False,
                        help="Use full COCO dataset for evaluation (overrides --use-sample)")
-    parser.add_argument("--bm25-k1", type=float, default=1.2,
-                       help="BM25 k1 parameter")
-    parser.add_argument("--bm25-b", type=float, default=0.75,
-                       help="BM25 b parameter")
+    parser.add_argument("--bm25-k1", type=float, default=None,
+                       help="BM25 k1 parameter (default: from Config)")
+    parser.add_argument("--bm25-b", type=float, default=None,
+                       help="BM25 b parameter (default: from Config)")
     parser.add_argument("--output-file", type=str, default=None,
                        help="Output file path (optional)")
     

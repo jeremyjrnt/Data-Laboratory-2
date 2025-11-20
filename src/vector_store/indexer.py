@@ -42,6 +42,9 @@ import torch.nn.functional as F
 # Transformers for CLIP
 from transformers import CLIPProcessor, CLIPModel
 
+# Config
+from config.config import Config
+
 # Configure logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
@@ -53,7 +56,7 @@ class FAISSVectorIndexer:
     
     def __init__(self, 
                  index_name: str,
-                 model_name: str = "openai/clip-vit-large-patch14",
+                 model_name: str = None,
                  device: Optional[str] = None):
         """
         Initialize FAISS indexer with CLIP model
@@ -64,7 +67,7 @@ class FAISSVectorIndexer:
             device: Device to use ('cuda', 'cpu', or None for auto)
         """
         self.index_name = index_name
-        self.model_name = model_name
+        self.model_name = model_name or Config.HF_MODEL_CLIP_LARGE
         
         # Set device with GPU priority
         if device is None:
@@ -464,8 +467,8 @@ def main():
     parser.add_argument('--index-name', required=True, help='Name for the FAISS index')
     parser.add_argument('--images-folder', required=True, help='Path to images folder')
     parser.add_argument('--metadata-json', required=True, help='Path to metadata JSON file')
-    parser.add_argument('--save-dir', default='./VectorDBs', help='Directory to save index')
-    parser.add_argument('--model-name', default='openai/clip-vit-large-patch14', help='CLIP model name')
+    parser.add_argument('--save-dir', default=None, help='Directory to save index (default: from Config)')
+    parser.add_argument('--model-name', default=None, help='CLIP model name (default: from Config)')
     
     args = parser.parse_args()
     
@@ -484,7 +487,8 @@ def main():
     
     if success:
         # Save index
-        indexer.save_index(args.save_dir)
+        save_dir = args.save_dir or str(Config.VECTORDB_DIR)
+        indexer.save_index(save_dir)
         
         # Print stats
         stats = indexer.get_stats()
