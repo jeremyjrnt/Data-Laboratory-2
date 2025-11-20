@@ -1,7 +1,0 @@
-dataset,method,progression_mean,progression_median,progression_std,progression_count,improvement_mean,decision_correct_mean,baseline_rank_mean,R@1,absolute_amelioration_mean,absolute_amelioration_median,relative_amelioration_mean
-COCO,structured,-301.652,-7.0,1560.809,3000,0.475,0.475,495.877,0.007,247.558,193.5,0.488
-COCO,unstructured,-400.123,-31.5,1755.134,3000,0.421,0.422,495.877,0.004,237.086,186.0,0.457
-Flickr,structured,-76.798,1.0,500.768,2981,0.503,0.495,49.174,0.03,26.97,22.0,0.526
-Flickr,unstructured,-71.907,-1.0,333.274,2981,0.443,0.436,49.174,0.025,25.477,19.0,0.508
-VizWiz,structured,-565.661,12.0,2661.081,2999,0.529,0.527,494.477,0.041,334.376,285.0,0.62
-VizWiz,unstructured,-525.245,6.0,2555.583,2999,0.52,0.507,494.477,0.043,334.426,288.0,0.625
