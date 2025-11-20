@@ -41,8 +41,6 @@ We design and evaluate **four methods** integrating LLMs/VLMs at different stage
 2. **LLM as Query Reformulator**  
    LLM reformulates queries based on top-k results in structured (scene/emotion/action) or unstructured paradigms.
 
----
-
 ## Early-Stage Methods (Index-Time Integration)
 
 3. **BLIP-Based Multiple Retrieval Systems**  
@@ -1195,6 +1193,7 @@ For questions, issues, or collaboration:
 - Issues: [GitHub Issues](https://github.com/jeremyjrnt/Data-Laboratory-2/issues)
 
 ---
+
 
 
 
