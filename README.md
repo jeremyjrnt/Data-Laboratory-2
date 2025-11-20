@@ -10,12 +10,11 @@ A comprehensive research project investigating how Large Language Models (LLMs) 
 - [Datasets](#datasets)
 - [Methodology](#methodology)
 - [Key Findings](#key-findings)
-- [Installation](#installation)
+- [Installation & Setup](#installation--setup)
 - [Usage](#usage)
 - [Visualization](#visualization)
 - [Performance Analysis](#performance-analysis)
 - [Dependencies](#dependencies)
-- [Citation](#citation)
 
 ## Overview
 
@@ -383,16 +382,22 @@ We evaluate **four distinct integration strategies** for LLMs and VLMs in text-t
    - May be preferable when inference latency is critical
    - Fusion methods justify cost only when R@10 or improvement rate is priority
 
-## Installation
+## Installation & Setup
 
 ### Prerequisites
 
-- Python 3.8+
-- CUDA-compatible GPU (recommended for CLIP/BLIP inference)
-- 32GB+ RAM (for large vector indexes)
-- 100GB+ disk space (for datasets and indexes)
+Before you begin, ensure you have the following:
 
-### Setup
+- **Python 3.8+** (Python 3.9 or 3.10 recommended)
+- **CUDA-compatible GPU** (recommended for CLIP/BLIP inference)
+  - NVIDIA GPU with 8GB+ VRAM
+  - CUDA 11.8+ or compatible version
+- **System Requirements**:
+  - 32GB+ RAM (for large vector indexes)
+  - 100GB+ disk space (for datasets and indexes)
+- **Git** (for cloning the repository)
+
+### Quick Start
 
 1. **Clone the repository**
 ```bash
@@ -400,33 +405,177 @@ git clone https://github.com/jeremyjrnt/Data-Laboratory-2.git
 cd Data-Laboratory-2
 ```
 
-2. **Create virtual environment**
+2. **Create and activate virtual environment**
 ```bash
+# Create virtual environment
 python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
+
+# Activate on macOS/Linux
+source venv/bin/activate
+
+# Activate on Windows
+venv\Scripts\activate
 ```
 
-3. **Install dependencies**
+3. **Install Python dependencies**
 ```bash
+# Upgrade pip first
+pip install --upgrade pip
+
+# Install all required packages
 pip install -r requirements.txt
 ```
 
-4. **Download datasets**
+4. **Install Ollama (for LLM-based methods)**
+
+Ollama is required for running LLM-based retrieval methods (PRF, Query Reformulation, IVF+LLM).
+
+**macOS/Linux:**
 ```bash
-# COCO
-python data/COCO/COCO_script.py
+curl -fsSL https://ollama.com/install.sh | sh
+```
+
+**Windows:**
+Download the installer from [https://ollama.com/download](https://ollama.com/download)
+
+**Pull required LLM models:**
+```bash
+# Pull models used in experiments
+ollama pull gemma3:4b
+ollama pull gemma3:27b
+ollama pull mistral:7b
+
+# Verify installation
+ollama list
+```
+
+5. **Configure GPU support (optional but recommended)**
+
+For GPU-accelerated FAISS:
+```bash
+# Uninstall CPU version
+pip uninstall faiss-cpu
+
+# Install GPU version
+pip install faiss-gpu
+```
+
+Verify PyTorch CUDA support:
+```python
+import torch
+print(f"CUDA available: {torch.cuda.is_available()}")
+print(f"CUDA version: {torch.version.cuda}")
+```
+
+6. **Download datasets**
+
+Download and prepare the three evaluation datasets:
+
+```bash
+# MS COCO 2017
+cd data/COCO
+python COCO_script.py
+cd ../..
 
 # Flickr30K
-python data/Flickr/Flickr_script.py
+cd data/Flickr
+python Flickr_script.py
+cd ../..
 
 # VizWiz
-python data/VizWiz/VizWiz_script.py
+cd data/VizWiz
+python VizWiz_script.py
+cd ../..
 ```
 
-5. **Build vector indexes** (optional, pre-built indexes available)
+**Note**: Dataset downloads may take several hours and require significant disk space (~50GB).
+
+7. **Build vector indexes** (optional)
+
+Pre-built indexes are available in `VectorDBs/`, but you can rebuild them:
+
 ```bash
-python src/indexer/build_indexes.py
+# Build baseline CLIP indexes
+python src/vector_store/indexer.py --dataset COCO
+python src/vector_store/indexer.py --dataset Flickr
+python src/vector_store/indexer.py --dataset VizWiz
+
+# Build hybrid indexes (Two Embeddings method)
+python src/methods_indexer/indexer_two_embeddings.py --dataset Flickr
+
+# Build IVF indexes with LLM cluster descriptions
+python src/methods_indexer/indexer_ivf_llm_cc.py --dataset COCO --clusters 512
 ```
+
+### Verify Installation
+
+Test that everything is working correctly:
+
+```python
+# test_setup.py
+import torch
+import clip
+import faiss
+import ollama
+
+# Check PyTorch and CUDA
+print(f"PyTorch version: {torch.__version__}")
+print(f"CUDA available: {torch.cuda.is_available()}")
+
+# Check CLIP
+device = "cuda" if torch.cuda.is_available() else "cpu"
+model, preprocess = clip.load("ViT-B/32", device=device)
+print("CLIP model loaded successfully")
+
+# Check FAISS
+print(f"FAISS version: {faiss.__version__}")
+
+# Check Ollama
+try:
+    response = ollama.list()
+    print(f"Ollama is running with {len(response['models'])} models")
+except:
+    print("Warning: Ollama is not running or not installed")
+
+print("\n✅ Setup verification complete!")
+```
+
+Run the test:
+```bash
+python test_setup.py
+```
+
+### Troubleshooting
+
+**Issue: CUDA not available**
+- Ensure NVIDIA drivers are up to date
+- Install compatible CUDA toolkit version
+- Reinstall PyTorch with CUDA support: `pip install torch torchvision --index-url https://download.pytorch.org/whl/cu118`
+
+**Issue: Ollama connection failed**
+- Start Ollama service: `ollama serve`
+- Check if models are downloaded: `ollama list`
+- Test with: `ollama run gemma3:4b "Hello"`
+
+**Issue: Out of memory errors**
+- Reduce batch size in indexing scripts
+- Use CPU-based FAISS if GPU memory is insufficient
+- Close other GPU-intensive applications
+
+**Issue: Dataset download fails**
+- Check internet connection
+- Verify sufficient disk space
+- Try downloading datasets manually from official sources
+
+### Next Steps
+
+Once setup is complete:
+1. Review the [Usage](#usage) section for examples
+2. Run baseline retrieval experiments
+3. Explore different LLM integration methods
+4. Generate visualizations with provided scripts
+
+For questions or issues, please open an issue on [GitHub](https://github.com/jeremyjrnt/Data-Laboratory-2/issues).
 
 ## Usage
 
@@ -1081,21 +1230,6 @@ Potential extensions of this research:
 4. **Multi-stage pipelines**: Combine early and late integration strategically
 5. **Interactive retrieval**: User feedback loops with LLM refinement
 6. **Zero-shot generalization**: Test on unseen datasets and domains
-
-## Citation
-
-If you use this code or findings in your research, please cite:
-
-```bibtex
-@article{datalab2_2025,
-  title={Evaluating LLM and VLM Integration Strategies for Text-to-Image Retrieval},
-  author={[Your Name]},
-  year={2025},
-  journal={[Conference/Journal]},
-  note={Research project on multimodal retrieval with large language models}
-}
-```
-
 
 ## Acknowledgments
 
