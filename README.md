@@ -33,6 +33,24 @@ We design and evaluate **four methods** integrating LLMs/VLMs at different stage
 3. **BLIP-Based Multiple Retrieval Systems**: Combines 4 retrieval channels (Image embeddings, BLIP captions, averaged embeddings, BM25) via fusion methods (CombSUM, RRF, Borda)
 4. **Inverted File Index with BLIP-Based Cluster Corpus**: Uses FPS sampling + LLM aggregation to create semantic cluster descriptions for IVF routing
 
+## Late-Stage Methods (Post-Retrieval)
+
+1. **LLM as Relevance Feedback Provider**  
+   Uses LLM to judge relevance of top-k results, then applies Rocchio algorithm to update the query embedding.
+
+2. **LLM as Query Reformulator**  
+   LLM reformulates queries based on top-k results in structured (scene/emotion/action) or unstructured paradigms.
+
+---
+
+## Early-Stage Methods (Index-Time Integration)
+
+3. **BLIP-Based Multiple Retrieval Systems**  
+   Combines 4 retrieval channels (image embeddings, BLIP captions, averaged embeddings, BM25) with fusion methods (CombSUM, RRF, Borda).
+
+4. **Inverted File Index with BLIP-Based Cluster Corpus**  
+   Uses FPS sampling + LLM aggregation to create semantic cluster descriptions for IVF routing.
+
 **Key Results:**
 - **Late-stage methods** improve high-rank metrics (R@5, R@10, MRR) but remain **unstable** with >50% queries experiencing rank degradations
 - **Early-stage hybrid retrieval** yields **strong and stable gains** on moderate-scale datasets: R@10 improves from 0.112 to **0.330** (+195%) and MRR from 0.052 to **0.149** (+186%) on Flickr30k
@@ -1177,6 +1195,7 @@ For questions, issues, or collaboration:
 - Issues: [GitHub Issues](https://github.com/jeremyjrnt/Data-Laboratory-2/issues)
 
 ---
+
 
 
 
